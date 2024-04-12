@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="logito">
+    <file>vectorhotel.png</file>
+  </qresource>
+</RCC>
