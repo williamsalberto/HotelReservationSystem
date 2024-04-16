@@ -3,7 +3,8 @@
 from PyQt5 import uic #Esta importacion convierte el .ui a un .py manipulable
 from PyQt5.QtWidgets import QMessageBox
 from conexion import conectar
-
+from mainWindows import *
+import time
 #Definimos nuestra clase de Login para tener sus funcionalidades y la conversion del archivo
 class Login():
     def __init__(self):
@@ -11,7 +12,8 @@ class Login():
         self.iniciar_interfaz()
         self.login.lblMensaje.setText("")
         self.login.show()
-    
+        self.mainWindows = MainWindows()
+        self.mainWindows.mainWindows.hide()
     def ingresar(self):
         if len(self.login.txtUsuario.text()) < 2:
             self.login.lblMensaje.setText("Ingrese un usuario valido")
@@ -33,6 +35,8 @@ class Login():
 
                     if resultado:
                         self.login.lblMensaje.setText("Bienvenido!")
+                        self.login.hide()
+                        self.mainWindows.mainWindows.show()
                     else:
                         self.login.lblMensaje.setText("Credenciales Incorrectas, intente nuevamente")
                     

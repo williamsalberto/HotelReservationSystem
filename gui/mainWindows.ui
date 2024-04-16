@@ -213,122 +213,7 @@ QPushButton:hover{
          </property>
         </spacer>
        </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_ocultar">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="mouseTracking">
-          <bool>true</bool>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>ocultar.png</normaloff>ocultar.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_minimizar">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="mouseTracking">
-          <bool>true</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>minimizar.png</normaloff>minimizar.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_maximizar">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="mouseTracking">
-          <bool>true</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>maximizar.png</normaloff>maximizar.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>23</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_cerrar">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="mouseTracking">
-          <bool>true</bool>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <normaloff>cerrar.png</normaloff>cerrar.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-        </widget>
-       </item>
       </layout>
-      <zorder>pushButton_minimizar</zorder>
-      <zorder>pushButton_maximizar</zorder>
-      <zorder>pushButton_cerrar</zorder>
-      <zorder>pushButton_menu</zorder>
-      <zorder>pushButton_ocultar</zorder>
      </widget>
     </item>
     <item>
@@ -442,7 +327,7 @@ QLabel:hover{
              </size>
             </property>
             <property name="mouseTracking">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="text">
              <string>     Reservas</string>
@@ -474,7 +359,7 @@ QLabel:hover{
              </size>
             </property>
             <property name="mouseTracking">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="text">
              <string>    Calendario</string>
@@ -506,7 +391,7 @@ QLabel:hover{
              </size>
             </property>
             <property name="mouseTracking">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="text">
              <string>    Ver Pagos</string>
@@ -538,7 +423,7 @@ QLabel:hover{
              </size>
             </property>
             <property name="mouseTracking">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="text">
              <string>     Ver Deudas</string>
@@ -570,7 +455,7 @@ QLabel:hover{
              </size>
             </property>
             <property name="mouseTracking">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="text">
              <string>   Proyección</string>
