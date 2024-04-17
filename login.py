@@ -36,7 +36,8 @@ class Login():
                     if resultado:
                         self.login.lblMensaje.setText("Bienvenido!")
                         self.login.hide()
-                        self.mainWindows.mainWindows.show()
+                        time.sleep(1)
+                        self.mainWindows.mainWindows.showMaximized()
                     else:
                         self.login.lblMensaje.setText("Credenciales Incorrectas, intente nuevamente")
                     
