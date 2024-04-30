@@ -2,7 +2,9 @@
 
 from PyQt5 import uic #Esta importacion convierte el .ui a un .py manipulable
 from PyQt5.QtWidgets import QMessageBox
-from conexion import conectar
+import conexion as conexion 
+from main import *
+
 
 #Definimos nuestra clase de Login para tener sus funcionalidades y la conversion del archivo
 class Login():
@@ -23,7 +25,7 @@ class Login():
         
         else:
             try:
-                conn = conectar()
+                conn = conexion.conectar()
                 if conn:
                     cursor = conn.cursor()
                     #Consulta para validar las credenciales
@@ -33,6 +35,8 @@ class Login():
 
                     if resultado:
                         self.login.lblMensaje.setText("Bienvenido!")
+                        self.main = VentanaPrincipal()
+                        self.login.hide()
                     else:
                         self.login.lblMensaje.setText("Credenciales Incorrectas, intente nuevamente")
                     
