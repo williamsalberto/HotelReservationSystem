@@ -7,6 +7,7 @@ class VentanaPrincipal():
         self.main = uic.loadUi('gui/main.ui')
         self.inicializar_interfaz()
         #Mostramos la ventana
+        self.main.showMaximized()
         self.main.show()
         self.main.icon_name_widget.setHidden(True)
 

@@ -542,27 +542,29 @@ QPushButton:checked{
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <widget class="QWidget" name="dashboard_page">
-          <widget class="QLabel" name="label_4">
-           <property name="geometry">
-            <rect>
-             <x>240</x>
-             <y>180</y>
-             <width>151</width>
-             <height>121</height>
-            </rect>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>20</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">text-align: center;</string>
-           </property>
-           <property name="text">
-            <string>¡Bienvenido!</string>
-           </property>
-          </widget>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">text-align: center;</string>
+             </property>
+             <property name="text">
+              <string>¡Bienvenido!</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="reservar_page"/>
          <widget class="QWidget" name="actualizar_page"/>
