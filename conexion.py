@@ -21,5 +21,3 @@ def conectar():
         print(f'Ocurrio un error de tipo: {e}')
         return None
     
-if __name__ == '__main__':
-    print(f'{conectar()}')
