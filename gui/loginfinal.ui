@@ -158,9 +158,10 @@ padding-bottom: 7px;</string>
   <widget class="QLabel" name="lblMensaje">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>120</x>
      <y>430</y>
-     <width>241</width>
+     <width>281</width>
+
      <height>20</height>
     </rect>
    </property>

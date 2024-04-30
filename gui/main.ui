@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>804</width>
+    <height>583</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(245, 250, 254);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QWidget" name="icon_only_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	background-color: rgb(31, 149, 239);
+}
+
+QPushButton{
+	color: white;
+	height: 30px;
+	border: none;
+	border-radius: 10px;
+}
+
+QPushButton:checked{
+	background-color: rgb(245, 250, 254);
+	color: rgb(31, 149, 239);
+	font-weight:bold;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="imagenes.qrc">:/logito/logo_usuario_negro.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnDashboard_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/aplicaciones.png</normaloff>
+             <normalon>:/logito/dashboard_azul.png</normalon>:/logito/aplicaciones.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnReservar_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_reservar_blanco.png</normaloff>
+             <normalon>:/logito/logo_reservar_azul.png</normalon>:/logito/logo_reservar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActualizar_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_actualizar_blanco.png</normaloff>
+             <normalon>:/logito/logo_actualizar_azul.png</normalon>:/logito/logo_actualizar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDeudas_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_deudas_blanco.png</normaloff>
+             <normalon>:/logito/logo_deudas_azul.png</normalon>:/logito/logo_deudas_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnIngresos_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_pagos_blanco.png</normaloff>
+             <normalon>:/logito/logo_pagos_azul.png</normalon>:/logito/logo_pagos_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnGrafico_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_grafica_blanco.png</normaloff>
+             <normalon>:/logito/logo_grafica_azul.png</normalon>:/logito/logo_grafica_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>198</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_salir_blanco.png</normaloff>:/logito/logo_salir_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QWidget" name="icon_name_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	background-color: rgb(31, 149, 239);
+	color: white;
+}
+
+QPushButton{
+	color: white;
+	text-align: left;
+	height: 30px;
+	border: none;
+	padding-left: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+QPushButton:checked{
+	background-color: rgb(245, 250, 254);
+	color: rgb(31, 149, 239);
+	font-weight:bold;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="imagenes.qrc">:/logito/logo_usuario_negro.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Menu</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnDashboard_2">
+           <property name="text">
+            <string>Dashboard</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/aplicaciones.png</normaloff>
+             <normalon>:/logito/dashboard_azul.png</normalon>:/logito/aplicaciones.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnReservar_2">
+           <property name="text">
+            <string>Reservar</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_reservar_blanco.png</normaloff>
+             <normalon>:/logito/logo_reservar_azul.png</normalon>:/logito/logo_reservar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActualizar_2">
+           <property name="text">
+            <string>Act. Reserva</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_actualizar_blanco.png</normaloff>
+             <normalon>:/logito/logo_actualizar_azul.png</normalon>:/logito/logo_actualizar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDeudas_2">
+           <property name="text">
+            <string>Deudas</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_deudas_blanco.png</normaloff>
+             <normalon>:/logito/logo_deudas_azul.png</normalon>:/logito/logo_deudas_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnIngresos_2">
+           <property name="text">
+            <string>Ingresos</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_pagos_blanco.png</normaloff>
+             <normalon>:/logito/logo_pagos_azul.png</normalon>:/logito/logo_pagos_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnGrafico_2">
+           <property name="text">
+            <string>Grafico</string>
+           </property>
+           <property name="icon">
+            <iconset resource="imagenes.qrc">
+             <normaloff>:/logito/logo_grafica_blanco.png</normaloff>
+             <normalon>:/logito/logo_grafica_azul.png</normalon>:/logito/logo_grafica_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>206</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Salir</string>
+         </property>
+         <property name="icon">
+          <iconset resource="imagenes.qrc">
+           <normaloff>:/logito/logo_salir_blanco.png</normaloff>:/logito/logo_salir_blanco.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QWidget" name="main_menu" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QWidget" name="header_widget" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QPushButton" name="btnMenu">
+            <property name="styleSheet">
+             <string notr="true">border: none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="imagenes.qrc">
+              <normaloff>:/logito/logo_menu_negro.png</normaloff>:/logito/logo_menu_negro.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>159</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLineEdit" name="lineEdit"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_14">
+              <property name="styleSheet">
+               <string notr="true">border: none;</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="imagenes.qrc">
+                <normaloff>:/logito/busqueda.png</normaloff>:/logito/busqueda.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>158</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_17">
+            <property name="styleSheet">
+             <string notr="true">border: none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="imagenes.qrc">
+              <normaloff>:/logito/logo_usuario_negro.png</normaloff>:/logito/logo_usuario_negro.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <widget class="QWidget" name="dashboard_page">
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>180</y>
+             <width>151</width>
+             <height>121</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">text-align: center;</string>
+           </property>
+           <property name="text">
+            <string>¡Bienvenido!</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="reservar_page"/>
+         <widget class="QWidget" name="actualizar_page"/>
+         <widget class="QWidget" name="deudas_page"/>
+         <widget class="QWidget" name="ingresos_page"/>
+         <widget class="QWidget" name="grafico_page"/>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnMenu</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>icon_only_widget</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>39</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnMenu</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>icon_name_widget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>39</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>185</x>
+     <y>374</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnGrafico_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnGrafico_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>83</x>
+     <y>295</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>33</x>
+     <y>293</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnIngresos_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnIngresos_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>92</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDeudas_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDeudas_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnActualizar_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnActualizar_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>108</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnReservar_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnReservar_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>33</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDashboard_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDashboard_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>34</x>
+     <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnGrafico_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnGrafico_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>40</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>81</x>
+     <y>308</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnIngresos_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnIngresos_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>78</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDeudas_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDeudas_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>33</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>82</x>
+     <y>196</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnActualizar_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnActualizar_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>77</x>
+     <y>175</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnReservar_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnReservar_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>41</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>80</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDashboard_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDashboard_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>47</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>80</x>
+     <y>83</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_7</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>584</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>34</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>36</x>
+     <y>597</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

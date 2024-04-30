@@ -6,3 +6,4 @@ class Reservador():
         self.app = QApplication([])
         self.login = Login()
         self.app.exec()
+        
