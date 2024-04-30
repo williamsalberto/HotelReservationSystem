@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>804</width>
+    <width>845</width>
     <height>583</height>
    </rect>
   </property>
@@ -68,7 +68,7 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="imagenes.qrc">:/logito/logo_usuario_negro.png</pixmap>
+            <pixmap>logo_usuario_negro.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -88,9 +88,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/aplicaciones.png</normaloff>
-             <normalon>:/logito/dashboard_azul.png</normalon>:/logito/aplicaciones.png</iconset>
+            <iconset>
+             <normaloff>aplicaciones.png</normaloff>
+             <normalon>dashboard_azul.png</normalon>aplicaciones.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -106,9 +106,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_reservar_blanco.png</normaloff>
-             <normalon>:/logito/logo_reservar_azul.png</normalon>:/logito/logo_reservar_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_reservar_blanco.png</normaloff>
+             <normalon>logo_reservar_azul.png</normalon>logo_reservar_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -124,9 +124,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_actualizar_blanco.png</normaloff>
-             <normalon>:/logito/logo_actualizar_azul.png</normalon>:/logito/logo_actualizar_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_actualizar_blanco.png</normaloff>
+             <normalon>logo_actualizar_azul.png</normalon>logo_actualizar_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -142,9 +142,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_deudas_blanco.png</normaloff>
-             <normalon>:/logito/logo_deudas_azul.png</normalon>:/logito/logo_deudas_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_deudas_blanco.png</normaloff>
+             <normalon>logo_deudas_azul.png</normalon>logo_deudas_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -160,9 +160,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_pagos_blanco.png</normaloff>
-             <normalon>:/logito/logo_pagos_azul.png</normalon>:/logito/logo_pagos_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_pagos_blanco.png</normaloff>
+             <normalon>logo_pagos_azul.png</normalon>logo_pagos_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -178,9 +178,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_grafica_blanco.png</normaloff>
-             <normalon>:/logito/logo_grafica_azul.png</normalon>:/logito/logo_grafica_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_grafica_blanco.png</normaloff>
+             <normalon>logo_grafica_azul.png</normalon>logo_grafica_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -209,8 +209,9 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_salir_blanco.png</normaloff>:/logito/logo_salir_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_salir_blanco.png</normaloff>
+             <normalon>logo_salir_azul.png</normalon>logo_salir_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -273,7 +274,7 @@ QPushButton:checked{
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap resource="imagenes.qrc">:/logito/logo_usuario_negro.png</pixmap>
+            <pixmap>logo_usuario_negro.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
@@ -306,9 +307,9 @@ QPushButton:checked{
             <string>Dashboard</string>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/aplicaciones.png</normaloff>
-             <normalon>:/logito/dashboard_azul.png</normalon>:/logito/aplicaciones.png</iconset>
+            <iconset>
+             <normaloff>aplicaciones.png</normaloff>
+             <normalon>dashboard_azul.png</normalon>aplicaciones.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -324,9 +325,9 @@ QPushButton:checked{
             <string>Reservar</string>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_reservar_blanco.png</normaloff>
-             <normalon>:/logito/logo_reservar_azul.png</normalon>:/logito/logo_reservar_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_reservar_blanco.png</normaloff>
+             <normalon>logo_reservar_azul.png</normalon>logo_reservar_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -342,9 +343,9 @@ QPushButton:checked{
             <string>Act. Reserva</string>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_actualizar_blanco.png</normaloff>
-             <normalon>:/logito/logo_actualizar_azul.png</normalon>:/logito/logo_actualizar_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_actualizar_blanco.png</normaloff>
+             <normalon>logo_actualizar_azul.png</normalon>logo_actualizar_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -360,9 +361,9 @@ QPushButton:checked{
             <string>Deudas</string>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_deudas_blanco.png</normaloff>
-             <normalon>:/logito/logo_deudas_azul.png</normalon>:/logito/logo_deudas_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_deudas_blanco.png</normaloff>
+             <normalon>logo_deudas_azul.png</normalon>logo_deudas_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -378,9 +379,9 @@ QPushButton:checked{
             <string>Ingresos</string>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_pagos_blanco.png</normaloff>
-             <normalon>:/logito/logo_pagos_azul.png</normalon>:/logito/logo_pagos_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_pagos_blanco.png</normaloff>
+             <normalon>logo_pagos_azul.png</normalon>logo_pagos_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -396,9 +397,9 @@ QPushButton:checked{
             <string>Grafico</string>
            </property>
            <property name="icon">
-            <iconset resource="imagenes.qrc">
-             <normaloff>:/logito/logo_grafica_blanco.png</normaloff>
-             <normalon>:/logito/logo_grafica_azul.png</normalon>:/logito/logo_grafica_blanco.png</iconset>
+            <iconset>
+             <normaloff>logo_grafica_blanco.png</normaloff>
+             <normalon>logo_grafica_azul.png</normalon>logo_grafica_blanco.png</iconset>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -429,8 +430,9 @@ QPushButton:checked{
           <string>Salir</string>
          </property>
          <property name="icon">
-          <iconset resource="imagenes.qrc">
-           <normaloff>:/logito/logo_salir_blanco.png</normaloff>:/logito/logo_salir_blanco.png</iconset>
+          <iconset>
+           <normaloff>logo_salir_blanco.png</normaloff>
+           <normalon>logo_salir_azul.png</normalon>logo_salir_blanco.png</iconset>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -455,8 +457,8 @@ QPushButton:checked{
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="imagenes.qrc">
-              <normaloff>:/logito/logo_menu_negro.png</normaloff>:/logito/logo_menu_negro.png</iconset>
+             <iconset>
+              <normaloff>logo_menu_negro.png</normaloff>logo_menu_negro.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -497,7 +499,8 @@ QPushButton:checked{
               </property>
               <property name="icon">
                <iconset resource="imagenes.qrc">
-                <normaloff>:/logito/busqueda.png</normaloff>:/logito/busqueda.png</iconset>
+                <normaloff>:/logito/busqueda.png</normaloff>
+                <normalon>busqueda.png</normalon>:/logito/busqueda.png</iconset>
               </property>
              </widget>
             </item>
@@ -525,8 +528,8 @@ QPushButton:checked{
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="imagenes.qrc">
-              <normaloff>:/logito/logo_usuario_negro.png</normaloff>:/logito/logo_usuario_negro.png</iconset>
+             <iconset>
+              <normaloff>logo_usuario_negro.png</normaloff>logo_usuario_negro.png</iconset>
             </property>
            </widget>
           </item>
