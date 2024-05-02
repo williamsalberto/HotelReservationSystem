@@ -1,6 +1,9 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMessageBox, QPushButton
-
+# Libreria para convertir texto a fecha
+from datetime import datetime
+# Importar conexion
+import conexion as conexion 
 class VentanaPrincipal():
     def __init__(self):
         #Cargamos el archivo .ui de la vista
@@ -30,6 +33,10 @@ class VentanaPrincipal():
 
         self.main.btnGrafico_1.clicked.connect(self.cambiar_pagina_grafico)
         self.main.btnGrafico_2.clicked.connect(self.cambiar_pagina_grafico)
+
+        # Botones de page registar huesped
+        self.main.pushButton_Registrar.clicked.connect(self.registrar_huesped)
+        self.main.pushButton_Limpiar.clicked.connect(self.limpiar_casillas_huesped)
     
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
@@ -48,6 +55,79 @@ class VentanaPrincipal():
 
     def cambiar_pagina_grafico(self):
         self.main.stackedWidget.setCurrentIndex(5)
+
+    def registrar_huesped(self):
+        if self.main.lineEdit_cedula.text() != '':
+            # Obtener los datos para registrar
+            nombre = self.main.lineEdit_nombre.text()
+            apellido = self.main.lineEdit_apellido.text()
+            cedula = self.main.lineEdit_cedula.text()
+            fechaNacimiento = self.main.lineEdit_fechaNacimiento.text()
+            # transformar texto a fecha
+            dia, mes, anio = self.obtener_componentes_fecha(fechaNacimiento)
+
+            estadoCivil = self.main.lineEdit_estadoCivil.text()
+            procedencia = self.main.lineEdit_procedencia.text()
+            telefono = self.main.lineEdit_telefono.text()
+            profesion = self.main.lineEdit_profesion.text()
+            # registrar huesped
+            conn = conexion.conectar()
+            if conn:
+                cursor = conn.cursor()
+                try:
+                    # Consulta para verificar que el cliente no existe
+                    consultica = "SELECT * FROM huesped WHERE documento_identidad = %s"
+                    cursor.execute(consultica, (cedula,))
+                    resultado = cursor.fetchone()
+
+                    # Si el resultado encuentra una coincidencia
+                    if resultado:
+                        QMessageBox.warning(self.main, "Aviso", "Ya existe un huesped con este documento de identidad.")
+                    else:
+                        # Registrar huesped si no hay coincidencia
+                        consultica = "INSERT INTO huesped (nombre, apellido, documento_identidad, dia_nacimiento, mes_nacimiento, anio_nacimiento, edo_civil, procedencia, profesion, telefono) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                        cursor.execute(consultica, (nombre, apellido, cedula, dia, mes, anio, estadoCivil, profesion, telefono, procedencia))
+                        conn.commit()
+                        QMessageBox.information(self.main, "Éxito", "Huesped registrado correctamente.")
+                except Exception as e:
+                    QMessageBox.critical(self.main, "Error", "Ocurrió un error al registrar el huesped:\n{}".format(str(e)))
+                finally:
+                    conn.close()
+            else:
+                QMessageBox.critical(self.main, "Error", "Ocurrió un error al conectar con la base de datos.")
+        else:
+                QMessageBox.critical(self.main, "Error", "Es obligatorio ingresar un documento de identidad.")        
+    def limpiar_casillas_huesped(self):
+        self.main.lineEdit_nombre.clear()
+        self.main.lineEdit_apellido.clear()
+        self.main.lineEdit_cedula.clear()
+        self.main.lineEdit_fechaNacimiento.clear()
+        self.main.lineEdit_estadoCivil.clear()
+        self.main.lineEdit_procedencia.clear()
+        self.main.lineEdit_telefono.clear()
+        self.main.lineEdit_profesion.clear()
+        
     
     def inicializar_interfaz(self):
         self.main.btnDashboard_1.clicked.connect(self.cambiar_pagina_dashboard)
+
+    # Convertir texto a fecha
+    def obtener_componentes_fecha(self, texto):
+        try:
+            # Intenta convertir el texto en un objeto de fecha con el formato dd/mm/yyyy
+            fecha = datetime.strptime(texto, '%d/%m/%Y')
+        except ValueError:
+            try:
+                # Si no funciona, intenta convertir el texto en un objeto de fecha con el formato dd-mm-yyyy
+                fecha = datetime.strptime(texto, '%d-%m-%Y')
+            except ValueError:
+                # Si ninguno de los formatos coincide, muestra un mensaje de error
+                print("El formato de fecha no es válido.")
+                return None, None, None
+    
+        # Obtener el día, mes y año por separado
+        dia = fecha.day
+        mes = fecha.month
+        ano = fecha.year
+    
+        return dia, mes, ano
