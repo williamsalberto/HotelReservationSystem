@@ -19,6 +19,12 @@ class VentanaPrincipal():
         self.main.btnDashboard_1.clicked.connect(self.cambiar_pagina_dashboard)
         self.main.btnDashboard_2.clicked.connect(self.cambiar_pagina_dashboard)
 
+        self.main.btnAggHuesped_1.clicked.connect(self.cambiar_pagina_agg_huesped)
+        self.main.btnAggHuesped_2.clicked.connect(self.cambiar_pagina_agg_huesped)
+
+        self.main.btnHabitaciones_1.clicked.connect(self.cambiar_pagina_habitacion)
+        self.main.btnHabitaciones_2.clicked.connect(self.cambiar_pagina_habitacion)
+
         self.main.btnReservar_1.clicked.connect(self.cambiar_pagina_hacer_reserva)
         self.main.btnReservar_2.clicked.connect(self.cambiar_pagina_hacer_reserva)
 
@@ -37,24 +43,40 @@ class VentanaPrincipal():
         # Botones de page registar huesped
         self.main.pushButton_Registrar.clicked.connect(self.registrar_huesped)
         self.main.pushButton_Limpiar.clicked.connect(self.limpiar_casillas_huesped)
-    
+
+        # Botones de page reservar
+        self.main.pushButton_registrar_Reserva.clicked.connect(self.registrar_reserva)
+        self.main.pushButton_limpiar_Reserva.clicked.connect(self.limpiar_casillas_reserva)
+        # Rellenar select de page reservar
+        self.main.comboBox_status_pago.addItem('SELECCIONA UNA OPCIÓN') 
+        list_status = {'CANCELADO', 'POR CANCELAR'}
+        for status in list_status:
+                self.main.comboBox_status_pago.addItem(status) 
+        self.main.comboBox_status_pago.setCurrentIndex(0)
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
         self.main.stackedWidget.setCurrentIndex(0)
     
-    def cambiar_pagina_hacer_reserva(self):
+    def cambiar_pagina_agg_huesped(self):
         self.main.stackedWidget.setCurrentIndex(1)
 
-    def cambiar_pagina_actualizar_reserva(self):
+    def cambiar_pagina_habitacion(self):
         self.main.stackedWidget.setCurrentIndex(2)
 
-    def cambiar_pagina_deuda(self):
+    def cambiar_pagina_hacer_reserva(self):
         self.main.stackedWidget.setCurrentIndex(3)
-    def cambiar_pagina_pagos(self):
+
+    def cambiar_pagina_actualizar_reserva(self):
         self.main.stackedWidget.setCurrentIndex(4)
 
-    def cambiar_pagina_grafico(self):
+    def cambiar_pagina_deuda(self):
         self.main.stackedWidget.setCurrentIndex(5)
+
+    def cambiar_pagina_pagos(self):
+        self.main.stackedWidget.setCurrentIndex(6)
+
+    def cambiar_pagina_grafico(self):
+        self.main.stackedWidget.setCurrentIndex(7)
 
     def registrar_huesped(self):
         if self.main.lineEdit_cedula.text() != '':
@@ -97,6 +119,7 @@ class VentanaPrincipal():
                 QMessageBox.critical(self.main, "Error", "Ocurrió un error al conectar con la base de datos.")
         else:
                 QMessageBox.critical(self.main, "Error", "Es obligatorio ingresar un documento de identidad.")        
+    
     def limpiar_casillas_huesped(self):
         self.main.lineEdit_nombre.clear()
         self.main.lineEdit_apellido.clear()
@@ -107,7 +130,6 @@ class VentanaPrincipal():
         self.main.lineEdit_telefono.clear()
         self.main.lineEdit_profesion.clear()
         
-    
     def inicializar_interfaz(self):
         self.main.btnDashboard_1.clicked.connect(self.cambiar_pagina_dashboard)
 
@@ -131,3 +153,16 @@ class VentanaPrincipal():
         ano = fecha.year
     
         return dia, mes, ano
+
+    def registrar_reserva(self):
+        pass
+
+    def limpiar_casillas_reserva(self):
+        self.main.lineEdit_cliente_Reserva.clear()
+        self.main.comboBox_habitacion.clear()
+        self.main.lineEdit_monto_Cancelar.clear()
+        self.main.comboBox_status_pago.setCurrentIndex(0)
+        self.main.lineEdit_fecha_inicio_Reserva.clear()
+        self.main.textEdit_nota_Reserva.clear()
+        self.main.textEdit_nota_pago_Reserva.clear()
+        self.main.textEdit_nota_reporte_Reserva.clear()
