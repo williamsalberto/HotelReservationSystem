@@ -560,7 +560,11 @@ QLineEdit{
                <widget class="QLineEdit" name="lineEdit_cedula"/>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_nombre"/>
+               <widget class="QLineEdit" name="lineEdit_nombre">
+                <property name="cursorPosition">
+                 <number>0</number>
+                </property>
+               </widget>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_apellido">
@@ -742,7 +746,7 @@ QLineEdit{
               <item row="2" column="0">
                <widget class="QLabel" name="monto_Cancelar">
                 <property name="text">
-                 <string>Monto a cancelar</string>
+                 <string>Monto en $</string>
                 </property>
                </widget>
               </item>
