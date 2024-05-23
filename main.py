@@ -1,5 +1,6 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QMessageBox, QPushButton
+from PyQt5.QtWidgets import QMessageBox, QPushButton, QCompleter
+from PyQt5.QtCore import Qt
 # Libreria para convertir texto a fecha
 from datetime import datetime
 # Importar conexion
@@ -49,6 +50,8 @@ class VentanaPrincipal():
         self.main.pushButton_limpiar_Reserva.clicked.connect(self.limpiar_casillas_reserva)
         # Rellenar select de page reservar
         self.limpiar_casillas_reserva() # se llama la funcion para limpiar casillas y obtener los select
+        
+
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
         self.main.stackedWidget.setCurrentIndex(0)
@@ -131,6 +134,7 @@ class VentanaPrincipal():
         
     def inicializar_interfaz(self):
         self.main.btnDashboard_1.clicked.connect(self.cambiar_pagina_dashboard)
+        
 
     # Convertir texto a fecha
     def obtener_componentes_fecha(self, texto):
@@ -155,7 +159,7 @@ class VentanaPrincipal():
 
     def registrar_reserva(self):
         if self.main.lineEdit_cliente_Reserva.text() != '' and self.main.comboBox_habitacion.currentText() != '' and self.main.lineEdit_monto_Cancelar.text() != '' and self.main.comboBox_status_pago.currentText() != '' and self.main.lineEdit_fecha_inicio_Reserva.text() != '' and self.main.lineEdit_fecha_salida_Reserva.text() != '':
-            # Obtener los datos para registrar
+        # Obtener los datos para registrar
             cliente = self.main.lineEdit_cliente_Reserva.text()
             habitacion = self.main.comboBox_habitacion.currentText()
             fechaI = self.main.lineEdit_fecha_inicio_Reserva.text()
@@ -169,7 +173,13 @@ class VentanaPrincipal():
             nota1 = self.main.textEdit_nota_Reserva.toPlainText()
             nota2 = self.main.textEdit_nota_pago_Reserva.toPlainText()
             nota3 = self.main.textEdit_nota_reporte_Reserva.toPlainText()
-            # registrar huesped
+            
+            # Validar que la fecha de inicio sea anterior a la fecha de salida
+            if datetime(anioI, mesI, diaI) >= datetime(anioF, mesF, diaF):
+                QMessageBox.warning(self.main, "Aviso", "La fecha de inicio debe ser anterior a la fecha de salida.")
+                return
+
+            # registrar reserva
             conn = conexion.conectar()
             if conn:
                 cursor = conn.cursor()
@@ -181,17 +191,17 @@ class VentanaPrincipal():
 
                     # Si el resultado encuentra una coincidencia
                     if resultado:
-                        # Registrar huesped si no hay coincidencia
+                        # Registrar reserva si hay coincidencia
                         consultica = "INSERT INTO reserva (codigo_huesped, codigo_habitacion, monto, status_pago, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, nota_importante, nota_pago, nota_reporte_huesped) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
                         cursor.execute(consultica, (cliente, habitacion, monto, status_pago, diaI, mesI, anioI, diaF, mesF, anioF, nota1, nota2, nota3))
                         conn.commit()
                         QMessageBox.information(self.main, "Éxito", "Reserva registrada correctamente.")
                         # Actualizar estado de la habitacion
                         consultica = "UPDATE habitacion SET status = 'RESERVADA' WHERE codigo = %s"
-                        cursor.execute(consultica, (habitacion))
+                        cursor.execute(consultica, (habitacion,))
                         conn.commit()
                         self.limpiar_casillas_reserva()
-                        
+
                     else:
                         QMessageBox.warning(self.main, "Aviso", "No existe un huesped con este documento de identidad.")    
                 except Exception as e:
@@ -201,8 +211,8 @@ class VentanaPrincipal():
             else:
                 QMessageBox.critical(self.main, "Error", "Ocurrió un error al conectar con la base de datos.")
         else:
-                QMessageBox.critical(self.main, "Error", "Es obligatorio ingresar todos los datos.")    
-
+            QMessageBox.critical(self.main, "Error", "Es obligatorio ingresar todos los datos.")
+    
     def limpiar_casillas_reserva(self):
         self.main.lineEdit_cliente_Reserva.clear()
         self.main.comboBox_habitacion.clear()
