@@ -84,6 +84,7 @@ class VentanaPrincipal():
             nombre = self.main.lineEdit_nombre.text()
             apellido = self.main.lineEdit_apellido.text()
             cedula = self.main.lineEdit_cedula.text()
+            empresa = self.main.lineEdit_empresa.text()
             fechaNacimiento = self.main.lineEdit_fechaNacimiento.text()
             # transformar texto a fecha
             dia, mes, anio = self.obtener_componentes_fecha(fechaNacimiento)
@@ -107,10 +108,11 @@ class VentanaPrincipal():
                         QMessageBox.warning(self.main, "Aviso", "Ya existe un huesped con este documento de identidad.")
                     else:
                         # Registrar huesped si no hay coincidencia
-                        consultica = "INSERT INTO huesped (nombre, apellido, documento_identidad, dia_nacimiento, mes_nacimiento, anio_nacimiento, edo_civil, procedencia, profesion, telefono) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                        cursor.execute(consultica, (nombre, apellido, cedula, dia, mes, anio, estadoCivil, profesion, telefono, procedencia))
+                        consultica = "INSERT INTO huesped (nombre, apellido, documento_identidad, empresa, dia_nacimiento, mes_nacimiento, anio_nacimiento, edo_civil, procedencia, profesion, telefono) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                        cursor.execute(consultica, (nombre, apellido, cedula, empresa, dia, mes, anio, estadoCivil, profesion, telefono, procedencia))
                         conn.commit()
                         QMessageBox.information(self.main, "Éxito", "Huesped registrado correctamente.")
+                        self.limpiar_casillas_huesped()
                 except Exception as e:
                     QMessageBox.critical(self.main, "Error", "Ocurrió un error al registrar el huesped:\n{}".format(str(e)))
                 finally:
@@ -124,6 +126,7 @@ class VentanaPrincipal():
         self.main.lineEdit_nombre.clear()
         self.main.lineEdit_apellido.clear()
         self.main.lineEdit_cedula.clear()
+        self.main.lineEdit_empresa.clear()
         self.main.lineEdit_fechaNacimiento.clear()
         self.main.lineEdit_estadoCivil.clear()
         self.main.lineEdit_procedencia.clear()

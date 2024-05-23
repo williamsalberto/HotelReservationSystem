@@ -529,45 +529,7 @@ QLineEdit{
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEdit_apellido"/>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_apellido">
-                <property name="text">
-                 <string>Apellido</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="QLabel" name="label_oficio">
-                <property name="text">
-                 <string>Profesión/Oficio</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_estadoCivil">
-                <property name="text">
-                 <string>Estado Civil</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_fechaNacimiento">
-                <property name="text">
-                 <string>Fecha de Nacimiento</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="0">
-               <widget class="QPushButton" name="pushButton_Registrar">
-                <property name="text">
-                 <string>Registrar</string>
-                </property>
-               </widget>
-              </item>
-              <item row="10" column="1">
+              <item row="11" column="1">
                <widget class="QPushButton" name="pushButton_Limpiar">
                 <property name="text">
                  <string>Borrar Datos</string>
@@ -575,41 +537,17 @@ QLineEdit{
                </widget>
               </item>
               <item row="7" column="1">
-               <widget class="QLineEdit" name="lineEdit_procedencia"/>
-              </item>
-              <item row="7" column="0">
-               <widget class="QLabel" name="label_Procedencia">
-                <property name="text">
-                 <string>Procedencia</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_cedula">
-                <property name="text">
-                 <string>Documento de identidad</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="QLabel" name="label_telefono">
-                <property name="text">
-                 <string>Telefono</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
                <widget class="QLineEdit" name="lineEdit_estadoCivil"/>
               </item>
-              <item row="3" column="1">
-               <widget class="QLineEdit" name="lineEdit_fechaNacimiento"/>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_apellido">
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_fechaNacimiento">
                 <property name="text">
-                 <string>Apellido</string>
+                 <string>Fecha de Nacimiento</string>
                 </property>
                </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_apellido"/>
               </item>
               <item row="0" column="0">
                <widget class="QLabel" name="label_nombre">
@@ -618,17 +556,89 @@ QLineEdit{
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
+              <item row="3" column="1">
                <widget class="QLineEdit" name="lineEdit_cedula"/>
               </item>
               <item row="0" column="1">
                <widget class="QLineEdit" name="lineEdit_nombre"/>
               </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_apellido">
+                <property name="text">
+                 <string>Apellido</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_fechaNacimiento"/>
+              </item>
+              <item row="11" column="0">
+               <widget class="QPushButton" name="pushButton_Registrar">
+                <property name="text">
+                 <string>Registrar</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="0">
+               <widget class="QLabel" name="label_oficio">
+                <property name="text">
+                 <string>Profesión/Oficio</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_cedula">
+                <property name="text">
+                 <string>Documento de identidad</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="QLabel" name="label_telefono">
+                <property name="text">
+                 <string>Telefono</string>
+                </property>
+               </widget>
+              </item>
               <item row="9" column="1">
-               <widget class="QLineEdit" name="lineEdit_profesion"/>
+               <widget class="QLineEdit" name="lineEdit_telefono"/>
               </item>
               <item row="8" column="1">
-               <widget class="QLineEdit" name="lineEdit_telefono"/>
+               <widget class="QLineEdit" name="lineEdit_procedencia"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_apellido">
+                <property name="text">
+                 <string>Apellido</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_estadoCivil">
+                <property name="text">
+                 <string>Estado Civil</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="1">
+               <widget class="QLineEdit" name="lineEdit_profesion"/>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_Procedencia">
+                <property name="text">
+                 <string>Procedencia</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_empresa"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_empresa">
+                <property name="text">
+                 <string>Empresa</string>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
