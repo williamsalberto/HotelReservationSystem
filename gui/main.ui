@@ -347,7 +347,7 @@ QPushButton:checked{
                <string/>
               </property>
               <property name="icon">
-               <iconset>
+               <iconset resource="imagenes.qrc">
                 <normaloff>:/logito/busqueda.png</normaloff>
                 <normalon>busqueda.png</normalon>:/logito/busqueda.png</iconset>
               </property>
@@ -389,6 +389,9 @@ QPushButton:checked{
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="currentIndex">
+          <number>4</number>
          </property>
          <widget class="QWidget" name="dashboard_page">
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -560,11 +563,7 @@ QLineEdit{
                <widget class="QLineEdit" name="lineEdit_cedula"/>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit_nombre">
-                <property name="cursorPosition">
-                 <number>0</number>
-                </property>
-               </widget>
+               <widget class="QLineEdit" name="lineEdit_nombre"/>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_apellido">
@@ -732,7 +731,7 @@ QLineEdit{
               <item row="0" column="0">
                <widget class="QLabel" name="cliente_Reserva">
                 <property name="text">
-                 <string>Cliente</string>
+                 <string>Cedula Cliente</string>
                 </property>
                </widget>
               </item>
@@ -746,7 +745,7 @@ QLineEdit{
               <item row="2" column="0">
                <widget class="QLabel" name="monto_Cancelar">
                 <property name="text">
-                 <string>Monto en $</string>
+                 <string>Monto a cancelar ($)</string>
                 </property>
                </widget>
               </item>
@@ -874,7 +873,348 @@ QLineEdit{
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="actualizar_page"/>
+         <widget class="QWidget" name="actualizar_page">
+          <widget class="QFrame" name="frame_TituloActualizar">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>611</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>2</y>
+              <width>619</width>
+              <height>50</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>178</width>
+                 <height>38</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_tituloActualizar">
+               <property name="font">
+                <font>
+                 <pointsize>20</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Actualizar Datos Reserva</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>138</width>
+                 <height>48</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame_DatosActualizar">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>70</y>
+             <width>611</width>
+             <height>191</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_EstadoPagoActualizar">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>160</y>
+              <width>91</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Estado de Pago:</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="comboBox_EstagoPagoActualizar">
+            <property name="geometry">
+             <rect>
+              <x>100</x>
+              <y>160</y>
+              <width>501</width>
+              <height>22</height>
+             </rect>
+            </property>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>40</y>
+              <width>591</width>
+              <height>24</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <widget class="QLabel" name="label_DiaSalidaActualizar">
+               <property name="text">
+                <string>Dia Salida:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_DiaSalidaActualizar"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>591</width>
+              <height>24</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <item>
+              <widget class="QLabel" name="label_IDReservaActualizar">
+               <property name="text">
+                <string>ID Reserva:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_IDReservaActualizar"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>70</y>
+              <width>591</width>
+              <height>24</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <widget class="QLabel" name="label_MesSalidaActualizar">
+               <property name="text">
+                <string>Mes Salida: </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_MesSalidaActualizar"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>100</y>
+              <width>591</width>
+              <height>24</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <item>
+              <widget class="QLabel" name="label_AnioSalidaActualizar">
+               <property name="text">
+                <string>Año Salida: </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_AnioSalidaActualizar"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>130</y>
+              <width>591</width>
+              <height>24</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_15">
+             <item>
+              <widget class="QLabel" name="label_MontoActualizar">
+               <property name="text">
+                <string>Monto ($):</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_MontoActualizar"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>270</y>
+             <width>611</width>
+             <height>151</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_NotaActualizar">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>10</y>
+              <width>49</width>
+              <height>21</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Nota:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_NotaPagoActualizar">
+            <property name="geometry">
+             <rect>
+              <x>210</x>
+              <y>10</y>
+              <width>91</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Nota de Pago:</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_NotaHuespedActualizar">
+            <property name="geometry">
+             <rect>
+              <x>410</x>
+              <y>10</y>
+              <width>161</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Nota de Reporte de Huesped:</string>
+            </property>
+           </widget>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>40</y>
+              <width>581</width>
+              <height>91</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QTextEdit" name="textEdit_NotaActualizar"/>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="textEdit_NotaPagoActualizar"/>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="textEdit_NotaHuespedActualizar"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QFrame" name="frame_botonesActualizar">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>400</y>
+             <width>611</width>
+             <height>101</height>
+            </rect>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QWidget" name="">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>45</y>
+              <width>591</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <widget class="QPushButton" name="btn_BuscarReservaActualizar">
+               <property name="text">
+                <string>Buscar Reserva</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_ActualizarReserva">
+               <property name="text">
+                <string>Actualizar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btn_LimpiarActualizar">
+               <property name="text">
+                <string>Limpiar Datos</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </widget>
          <widget class="QWidget" name="deudas_page"/>
          <widget class="QWidget" name="ingresos_page"/>
          <widget class="QWidget" name="grafico_page"/>
