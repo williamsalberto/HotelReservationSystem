@@ -48,6 +48,8 @@ class VentanaPrincipal():
         self.main.pushButton_registrar_Reserva.clicked.connect(self.registrar_reserva)
         self.main.pushButton_limpiar_Reserva.clicked.connect(self.limpiar_casillas_reserva)
 
+        
+
         # Rellenar select de page reservar
         self.main.comboBox_status_pago.addItem('SELECCIONA UNA OPCIÓN')
         list_status = {'CANCELADO', 'POR CANCELAR'}
@@ -60,10 +62,11 @@ class VentanaPrincipal():
         for habitacion in list_habitaciones:
             self.main.comboBox_habitacion.addItem(habitacion)
 
-        self.main.btn_BuscarReservaActualizar.clicked.connect(self.actualizar_reserva)
-        self.main.btn_ActualizarReserva.clicked.connect(self.guardar_actualizacion_reserva)
+        self.main.stackedWidget.setCurrentIndex(0)
 
         self.main.comboBox_status_pago.setCurrentIndex(0)
+        self.main.btn_BuscarReservaActualizar.clicked.connect(self.actualizar_reserva)
+        self.main.btn_ActualizarReserva.clicked.connect(self.guardar_actualizacion_reserva)
 
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
@@ -94,7 +97,6 @@ class VentanaPrincipal():
         if self.main.lineEdit_cedula.text() != '':
             # Obtener los datos para registrar
             nombre = self.main.lineEdit_nombre.text()
-            apellido = self.main.lineEdit_apellido.text()
             cedula = self.main.lineEdit_cedula.text()
             empresa = self.main.lineEdit_empresa.text()
             fechaNacimiento = self.main.lineEdit_fechaNacimiento.text()
@@ -120,8 +122,8 @@ class VentanaPrincipal():
                         QMessageBox.warning(self.main, "Aviso", "Ya existe un huesped con este documento de identidad.")
                     else:
                         # Registrar huesped si no hay coincidencia
-                        consultica = "INSERT INTO huesped (nombre, apellido, documento_identidad, empresa, dia_nacimiento, mes_nacimiento, anio_nacimiento, edo_civil, procedencia, profesion, telefono) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                        cursor.execute(consultica, (nombre, apellido, cedula, empresa, dia, mes, anio, estadoCivil, profesion, telefono, procedencia))
+                        consultica = "INSERT INTO huesped (nombre, documento_identidad, empresa, dia_nacimiento, mes_nacimiento, anio_nacimiento, edo_civil, procedencia, profesion, telefono) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+                        cursor.execute(consultica, (nombre, cedula, empresa, dia, mes, anio, estadoCivil, profesion, telefono, procedencia))
                         conn.commit()
                         QMessageBox.information(self.main, "Éxito", "Huesped registrado correctamente.")
                         self.limpiar_casillas_huesped()
@@ -136,7 +138,6 @@ class VentanaPrincipal():
     
     def limpiar_casillas_huesped(self):
         self.main.lineEdit_nombre.clear()
-        self.main.lineEdit_apellido.clear()
         self.main.lineEdit_cedula.clear()
         self.main.lineEdit_empresa.clear()
         self.main.lineEdit_fechaNacimiento.clear()
@@ -173,16 +174,16 @@ class VentanaPrincipal():
         if self.main.lineEdit_cliente_Reserva.text() != '':
             #Obtenemos los datos para registrar una reserva
             cedula_cliente = self.main.lineEdit_cliente_Reserva.text()
-            habitacion = self.main.comboBox_habitacion.text()
+            habitacion = self.main.comboBox_habitacion.currentText()
             #El nro de habitacion viene como string por lo tanto debe pasarse a entero para que coincida con la bd
             nro_habitacion = int(habitacion)
             monto_cancelar = self.main.lineEdit_monto_Cancelar.text()
-            estado_pago = self.main.comboBox_status_pago.text()
+            estado_pago = self.main.comboBox_status_pago.currentText()
             fecha_inicio = self.main.lineEdit_fecha_inicio_Reserva.text()
             fecha_salida = self.main.lineEdit_fecha_salida_Reserva.text()
-            nota = self.main.textEdit_nota_Reserva.text()
-            nota_de_pago = self.main.textEdit_nota_pago_Reserva.text()
-            nota_reporte = self.main.textEdit_nota_reporte_Reserva.text()
+            nota = self.main.textEdit_nota_Reserva.toPlainText()
+            nota_de_pago = self.main.textEdit_nota_pago_Reserva.toPlainText()
+            nota_reporte = self.main.textEdit_nota_reporte_Reserva.toPlainText()
             
             #Obtenemos por separado el día, mes y año de las fechas de inicio y salida
             dia_inicio, mes_inicio, anio_inicio = self.obtener_componentes_fecha(fecha_inicio)
@@ -225,6 +226,7 @@ class VentanaPrincipal():
 
     def actualizar_reserva(self):
         codigo = self.main.lineEdit_IDReservaActualizar.text()
+        codigo = int(codigo)
         if not codigo:
             QMessageBox.warning(self.main, "Aviso", "Ingresa un ID de reserva válido.")
             return
@@ -236,16 +238,17 @@ class VentanaPrincipal():
                 cursor = conn.cursor()
                 
                 #Consultamos los datos
-                consulta = "SELECT dia_fin, mes_fin, anio_fin, monto, nota, nota_huesped, nota_reporte_pago FROM reserva WHERE codigo = %s"
+                consulta = "SELECT dia_fin, mes_fin, anio_fin, monto, nota_importante, nota_reporte_huesped, nota_pago, estado_pago FROM reserva WHERE codigo = %s"
                 cursor.execute(consulta, (codigo_reserva,))
                 resultado = cursor.fetchone()
                 
                 if resultado:
-                    dia_fin, mes_fin, anio_fin, monto, nota, nota_huesped, nota_reporte_pago = resultado
+                    dia_fin, mes_fin, anio_fin, monto, nota, nota_huesped, nota_reporte_pago, estado_pago = resultado
                     self.main.lineEdit_DiaSalidaActualizar.setText(str(dia_fin))
                     self.main.lineEdit_MesSalidaActualizar.setText(str(mes_fin))
                     self.main.lineEdit_AnioSalidaActualizar.setText(str(anio_fin))
                     self.main.lineEdit_MontoActualizar.setText(str(monto))
+                    self.main.comboBox_EstadoPagoActualizar.setCurrentText(estado_pago)
                     self.main.textEdit_NotaActualizar.setPlainText(nota)
                     self.main.textEdit_NotaPagoActualizar.setPlainText(nota_reporte_pago)
                     self.main.textEdit_NotaHuespedActualizar.setPlainText(nota_huesped)
@@ -301,10 +304,11 @@ class VentanaPrincipal():
 
     def limpiar_casillas_reserva(self):
         self.main.lineEdit_cliente_Reserva.clear()
-        self.main.comboBox_habitacion.clear()
+        self.main.comboBox_habitacion.setCurrentIndex(0)
         self.main.lineEdit_monto_Cancelar.clear()
         self.main.comboBox_status_pago.setCurrentIndex(0)
         self.main.lineEdit_fecha_inicio_Reserva.clear()
+        self.main.lineEdit_fecha_salida_Reserva.clear()
         self.main.textEdit_nota_Reserva.clear()
         self.main.textEdit_nota_pago_Reserva.clear()
         self.main.textEdit_nota_reporte_Reserva.clear()
