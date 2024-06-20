@@ -1,6 +1,6 @@
 #En este archivo se hacen las importaciones necesarias para poder pintar el login de ui a .py
-from PyQt5 import uic #Esta importacion convierte el .ui a un .py manipulable
-from PyQt5.QtWidgets import QMessageBox
+from PyQt6 import uic #Esta importacion convierte el .ui a un .py manipulable
+from PyQt6.QtWidgets import QMessageBox
 import conexion as conexion 
 from main import *
 #Definimos nuestra clase de Login para tener sus funcionalidades y la conversion del archivo

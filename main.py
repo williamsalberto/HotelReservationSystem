@@ -1,5 +1,5 @@
-from PyQt5 import uic
-from PyQt5.QtWidgets import QMessageBox, QPushButton
+from PyQt6 import uic
+from PyQt6.QtWidgets import QMessageBox, QPushButton
 # Libreria para convertir texto a fecha
 from datetime import datetime
 # Importar conexion
@@ -55,18 +55,20 @@ class VentanaPrincipal():
         list_status = {'CANCELADO', 'POR CANCELAR'}
         for status in list_status:
                 self.main.comboBox_status_pago.addItem(status)
-                self.main.comboBox_EstagoPagoActualizar.addItem(status) 
+                self.main.comboBox_EstadoPagoActualizar.addItem(status) 
         
         self.main.comboBox_habitacion.addItem('SELECCIONA UNA HABITACION') 
         list_habitaciones = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15')
         for habitacion in list_habitaciones:
             self.main.comboBox_habitacion.addItem(habitacion)
+            self.main.comboBox_habitacionActualizar.addItem(habitacion)
 
         self.main.stackedWidget.setCurrentIndex(0)
 
         self.main.comboBox_status_pago.setCurrentIndex(0)
-        self.main.btn_BuscarReservaActualizar.clicked.connect(self.actualizar_reserva)
-        self.main.btn_ActualizarReserva.clicked.connect(self.guardar_actualizacion_reserva)
+        self.main.btn_BuscarReserva.clicked.connect(self.actualizar_reserva)
+        self.main.btn_Actualizar.clicked.connect(self.guardar_actualizacion_reserva)
+        self.main.btn_LimpiarActualizacion.clicked.connect(self.limpiar_casillas_actualizar)
 
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
@@ -225,12 +227,13 @@ class VentanaPrincipal():
                     conn.close()
 
     def actualizar_reserva(self):
-        codigo = self.main.lineEdit_IDReservaActualizar.text()
+        codigo = self.main.lineEdit_IDBuscar.text()
         codigo = int(codigo)
         if not codigo:
             QMessageBox.warning(self.main, "Aviso", "Ingresa un ID de reserva válido.")
             return
-
+        elif codigo == "":
+            QMessageBox.warning(self.main, "Debe rellenar este campo con un codigo numerico!")
         try:
             codigo_reserva = int(codigo)
             conn = conexion.conectar()
@@ -238,20 +241,21 @@ class VentanaPrincipal():
                 cursor = conn.cursor()
                 
                 #Consultamos los datos
-                consulta = "SELECT dia_fin, mes_fin, anio_fin, monto, nota_importante, nota_reporte_huesped, nota_pago, estado_pago FROM reserva WHERE codigo = %s"
+                consulta = "SELECT codigo_habitacion, codigo_huesped, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, nota_importante, nota_reporte_huesped, nota_pago, monto, estado_pago FROM reserva WHERE codigo = %s"
                 cursor.execute(consulta, (codigo_reserva,))
                 resultado = cursor.fetchone()
                 
                 if resultado:
-                    dia_fin, mes_fin, anio_fin, monto, nota, nota_huesped, nota_reporte_pago, estado_pago = resultado
-                    self.main.lineEdit_DiaSalidaActualizar.setText(str(dia_fin))
-                    self.main.lineEdit_MesSalidaActualizar.setText(str(mes_fin))
-                    self.main.lineEdit_AnioSalidaActualizar.setText(str(anio_fin))
-                    self.main.lineEdit_MontoActualizar.setText(str(monto))
+                    codigo_habitacion, cedula, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, nota, nota_huesped, nota_reporte_pago, monto, estado_pago = resultado
+                    self.main.lineEdit_CedulaActualizar.setText(cedula)
+                    self.main.comboBox_ActualizarHabitacion.setCurrentText(codigo_habitacion)
+                    self.main.lineEdit_FechaInicioActualizar.setText(str(f"{dia_inicio}/{mes_inicio}/{anio_inicio}"))
+                    self.main.lineEdit_FechaSalidaActualizar.setText(str(f"{dia_fin}/{mes_fin}/{anio_fin}"))
+                    self.main.lineEdit_MontoActualizado.setText(str(monto))
                     self.main.comboBox_EstadoPagoActualizar.setCurrentText(estado_pago)
                     self.main.textEdit_NotaActualizar.setPlainText(nota)
-                    self.main.textEdit_NotaPagoActualizar.setPlainText(nota_reporte_pago)
-                    self.main.textEdit_NotaHuespedActualizar.setPlainText(nota_huesped)
+                    self.main.textEdit_NotaReporteHuespedActualizar.setPlainText(nota_huesped)
+                    self.main.textEdit_NotaDePagoActualizar.setPlainText(nota_reporte_pago)
                 else:
                     QMessageBox.warning(self.main, "Aviso", "No existe una reserva con el ID especificado.")
 
@@ -264,14 +268,19 @@ class VentanaPrincipal():
                 conn.close()
 
     def guardar_actualizacion_reserva(self):
-        codigo = self.main.lineEdit_IDReservaActualizar.text()
-        dia_salida = self.main.lineEdit_DiaSalidaActualizar.text()
-        mes_salida = self.main.lineEdit_MesSalidaActualizar.text()
-        anio_salida = self.main.lineEdit_AnioSalidaActualizar.text()
-        monto = self.main.lineEdit_MontoActualizar.text()
+        codigo = self.main.lineEdit_IDBuscar.text()
+        cedula_cliente = self.main.lineEdit_CedulaActualizar.text()
+        nro_habitacion = self.main.comboBox_habitacionActualizar.currentText()
+        fecha_inicio = self.main.lineEdit_FechaInicioActualizar.text()
+        fecha_fin = self.main.lineEdit_FechaSalidaActualizar.text()
+        monto_act = self.main.lineEdit_MontoActualizado.text()
+        estado_pago_nuevo = self.main.comboBox_EstadoPagoActualizar.currentText()
         nota = self.main.textEdit_NotaActualizar.toPlainText()
-        nota_reporte_pago = self.main.textEdit_NotaPagoActualizar.toPlainText()
-        nota_huesped = self.main.textEdit_NotaHuespedActualizar.toPlainText()
+        nota_reporte_pago = self.main.textEdit_NotaDePagoActualizar.toPlainText()
+        nota_huesped = self.main.textEdit_NotaReporteHuespedActualizar.toPlainText()
+
+        dia_inicio, mes_inicio, anio_inicio = self.obtener_componentes_fecha(fecha_inicio)
+        dia_fin, mes_fin, anio_fin = self.obtener_componentes_fecha(fecha_fin)
         
         try:
             codigo_reserva = int(codigo)
@@ -281,12 +290,14 @@ class VentanaPrincipal():
                 #Actualizamos los datos en la base de datos
                 consulta = """
                     UPDATE reserva
-                    SET dia_fin = %s, mes_fin = %s, anio_fin = %s,
-                        monto = %s, nota = %s, nota_huesped = %s, nota_reporte_pago = %s
+                    SET codigo_habitacion = %s, codigo_huesped = %s, dia_inicio = %s,
+                        mes_inicio = %s, anio_inicio = %s, dia_fin = %s, mes_fin = %s,
+                        anio_fin = %s, nota_importante = %s, nota_reporte_huesped = %s,
+                        nota_pago = %s, monto = %s, estado_pago = %s
                     WHERE codigo = %s
                 """
-                cursor.execute(consulta, (dia_salida, mes_salida, anio_salida,
-                                      monto, nota, nota_huesped, nota_reporte_pago, codigo_reserva))
+                cursor.execute(consulta, (nro_habitacion, cedula_cliente, dia_inicio,
+                                      mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, nota, nota_huesped, nota_reporte_pago, monto_act, estado_pago_nuevo, codigo_reserva))
                 conn.commit()
                 QMessageBox.information(self.main, "Éxito", "Reserva actualizada correctamente.")
             else:
@@ -300,8 +311,6 @@ class VentanaPrincipal():
             if conn:
                 conn.close()
 
-
-
     def limpiar_casillas_reserva(self):
         self.main.lineEdit_cliente_Reserva.clear()
         self.main.comboBox_habitacion.setCurrentIndex(0)
@@ -312,3 +321,16 @@ class VentanaPrincipal():
         self.main.textEdit_nota_Reserva.clear()
         self.main.textEdit_nota_pago_Reserva.clear()
         self.main.textEdit_nota_reporte_Reserva.clear()
+    
+    def limpiar_casillas_actualizar(self):
+        self.main.lineEdit_IDBuscar.clear()
+        self.main.lineEdit_CedulaActualizar.clear()
+        self.main.comboBox_habitacionActualizar.setCurrentIndex(0)
+        self.main.lineEdit_FechaInicioActualizar.clear()
+        self.main.lineEdit_FechaSalidaActualizar.clear()
+        self.main.lineEdit_MontoActualizado.clear()
+        self.main.comboBox_EstadoPagoActualizar.setCurrentIndex(0)
+        self.main.textEdit_NotaActualizar.clear()
+        self.main.textEdit_NotaDePagoActualizar.clear()
+        self.main.textEdit_NotaReporteHuespedActualizar.clear()
+
