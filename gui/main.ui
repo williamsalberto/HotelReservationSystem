@@ -334,26 +334,16 @@ QPushButton:checked{
            </spacer>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <item>
-             <widget class="QLineEdit" name="lineEdit"/>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_14">
-              <property name="styleSheet">
-               <string notr="true">border: none;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>:/logito/busqueda.png</normaloff>
-                <normalon>busqueda.png</normalon>:/logito/busqueda.png</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QLabel" name="label_6">
+            <property name="styleSheet">
+             <string notr="true">QLabel{
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>La Casa Hotel Boutique C.A</string>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_3">
@@ -391,7 +381,7 @@ QPushButton:checked{
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="dashboard_page">
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -840,96 +830,17 @@ QLineEdit{
               <enum>QFrame::Shadow::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_5">
-              <item row="0" column="0">
-               <spacer name="horizontalSpacer_11">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>261</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="label_HabitacionHuesped">
-                <property name="text">
-                 <string>Huésped</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="2">
-               <widget class="QLineEdit" name="lineEdit_HabitacionHuesped">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_HabitacionNro">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
                 <property name="text">
                  <string>Habitación nro</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="2">
-               <widget class="QLineEdit" name="lineEdit_HabitacionNro">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="2">
-               <widget class="QLineEdit" name="lineEdit_HabitacionTiempo">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="label_tituloInformacion">
-                <property name="text">
-                 <string>Información</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <spacer name="horizontalSpacer_12">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>260</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_HabitacionTiempo">
-                <property name="text">
-                 <string>Tiempo de estadía</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="2">
-               <widget class="QLineEdit" name="lineEdit_HabitacionStatus">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_HabitacionStatus">
-                <property name="text">
-                 <string>Status</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0" colspan="3">
+              <item row="8" column="0" colspan="3">
                <widget class="QFrame" name="frameBotonesCambioHabitacion">
                 <property name="frameShape">
                  <enum>QFrame::Shape::StyledPanel</enum>
@@ -966,6 +877,98 @@ QLineEdit{
                   </widget>
                  </item>
                 </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_tituloInformacion">
+                <property name="text">
+                 <string>Información</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_HabitacionHuesped">
+                <property name="text">
+                 <string>Huésped</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionHuesped">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_HabitacionStatus">
+                <property name="text">
+                 <string>Status</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_HabitacionTiempo">
+                <property name="text">
+                 <string>Tiempo de estadía</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <spacer name="horizontalSpacer_12">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>260</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="6" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionTiempo">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionStatus">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionNro">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <spacer name="horizontalSpacer_11">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>261</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLineEdit" name="lineEdit_IDReservaHabitacion"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_IDReservaHabitacion">
+                <property name="text">
+                 <string>ID de Reserva</string>
+                </property>
                </widget>
               </item>
              </layout>
