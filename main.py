@@ -49,6 +49,8 @@ class VentanaPrincipal():
         self.main.pushButton_limpiar_Reserva.clicked.connect(self.limpiar_casillas_reserva)
 
         # Botones de habitaciones_page
+        self.main.lineEdit_HabitacionDisponible.hide()
+        self.main.label_HabitacionDisponible.hide()
         self.main.pushButtonHab1.clicked.connect((lambda: self.mostrar_habitaciones(1)))
         self.main.pushButtonHab2.clicked.connect((lambda: self.mostrar_habitaciones(2)))
         self.main.pushButtonHab3.clicked.connect((lambda: self.mostrar_habitaciones(3)))
@@ -64,7 +66,7 @@ class VentanaPrincipal():
         self.main.pushButtonHab13.clicked.connect((lambda: self.mostrar_habitaciones(13)))
         self.main.pushButtonHab14.clicked.connect((lambda: self.mostrar_habitaciones(14)))
         self.main.pushButtonHab15.clicked.connect((lambda: self.mostrar_habitaciones(15)))
-        self.main.pushButtonDisponibilidad.clicked.connect(self.mostrar_habitaciones)
+        self.main.pushButtonDisponibilidad.clicked.connect(self.mostrar_habitacionesDisponibles)
         self.main.pushButtonActualizarInfoHabitacion.clicked.connect(self.actualizar_habitacion)
         self.main.pushButtonEliminarCambioHabitacion.clicked.connect(self.eliminar_cambios_habitacion)
         # Rellenar select de page reservar
@@ -356,41 +358,60 @@ class VentanaPrincipal():
 
     # Mostrar las habitaciones
     def mostrar_habitaciones(self, habitacion_num):
+        self.main.lineEdit_HabitacionDisponible.hide()
+        self.main.label_HabitacionDisponible.hide()
         try:
             conn = conexion.conectar()
             if conn:
                 cursor = conn.cursor()
                 #Actualizamos los datos en la base de datos
                 consulta = """
-                    SELECT h.codigo AS numero_habitacion, h.status AS status_habitacion,
-                    hu.nombre AS nombre_huesped, hu.apellido AS apellido_huesped,
-                    hu.documento_identidad AS cedula_huesped, r.dia_inicio, r.mes_inicio, r.anio_inicio, r.dia_fin, r.mes_fin, r.anio_fin
-                    FROM public.habitacion h LEFT JOIN public.reserva r ON h.codigo = r.codigo_habitacion
-                    LEFT JOIN public.huesped hu ON r.codigo_huesped = hu.documento_identidad
-                    WHERE h.codigo = %s
-                    AND ( (r.anio_inicio < EXTRACT(YEAR FROM CURRENT_DATE) OR 
-                    (r.anio_inicio = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_inicio < EXTRACT(MONTH FROM CURRENT_DATE)) OR 
-                    (r.anio_inicio = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_inicio = EXTRACT(MONTH FROM CURRENT_DATE) AND r.dia_inicio <= EXTRACT(DAY FROM CURRENT_DATE)))
-                    AND (r.anio_fin > EXTRACT(YEAR FROM CURRENT_DATE) OR 
-                    (r.anio_fin = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_fin > EXTRACT(MONTH FROM CURRENT_DATE)) OR 
-                    (r.anio_fin = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_fin = EXTRACT(MONTH FROM CURRENT_DATE) AND r.dia_fin >= EXTRACT(DAY FROM CURRENT_DATE)))
-                    );
+                            SELECT h.codigo AS numero_habitacion, h.status AS status_habitacion,
+                            r.codigo AS id_reserva, hu.nombre AS nombre_huesped, hu.apellido AS apellido_huesped, 
+                            hu.documento_identidad AS cedula_huesped, r.dia_inicio, r.mes_inicio, 
+                            r.anio_inicio, r.dia_fin, r.mes_fin, r.anio_fin FROM habitacion h
+                            LEFT JOIN reserva r ON h.codigo = r.codigo_habitacion
+                            LEFT JOIN huesped hu ON r.codigo_huesped = hu.documento_identidad
+                            WHERE h.codigo = %s
+                            AND (
+                                (r.anio_inicio < EXTRACT(YEAR FROM CURRENT_DATE) OR 
+                                (r.anio_inicio = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_inicio < EXTRACT(MONTH FROM CURRENT_DATE)) OR 
+                                (r.anio_inicio = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_inicio = EXTRACT(MONTH FROM CURRENT_DATE) AND r.dia_inicio <= EXTRACT(DAY FROM CURRENT_DATE)))
+                                AND (r.anio_fin > EXTRACT(YEAR FROM CURRENT_DATE) OR 
+                                (r.anio_fin = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_fin > EXTRACT(MONTH FROM CURRENT_DATE)) OR 
+                                (r.anio_fin = EXTRACT(YEAR FROM CURRENT_DATE) AND r.mes_fin = EXTRACT(MONTH FROM CURRENT_DATE) AND r.dia_fin >= EXTRACT(DAY FROM CURRENT_DATE)))
+                            );
                 """
                 cursor.execute(consulta, (habitacion_num,))
                 row = cursor.fetchone()
+                tipoHabitacion = ''
+                if habitacion_num in (1,2,5,6,7,8,9,10,13,14): 
+                    tipoHabitacion = 'MATRIMONIAL'
+                elif habitacion_num in (3,4,15):
+                    tipoHabitacion = 'DOBLE'
+                elif habitacion_num in (11,12):
+                    tipoHabitacion = 'SUITE'
                 if row:
                     self.main.lineEdit_HabitacionNro.setText(str(row[0]))
                     self.main.lineEdit_HabitacionStatus.setText(row[1])
-                    huesped = row[2]+ " " + row[3] + "/C.I: " + row[4]
+                    self.main.lineEdit_HabitacionTipo.setText(tipoHabitacion)
+                    self.main.lineEdit_IDReservaHabitacion.setText(str(row[2]))
+                    huesped = row[3]+ " " + row[4] + "/C.I: " + row[5]
                     self.main.lineEdit_HabitacionHuesped.setText(huesped)
-                    fecha = "Desde: " + str(row[5]) + "-" + str(row[6]) + "-" + str(row[7]) + " Hasta: " + str(row[8]) + "-" + str(row[9]) + "-" + str(row[10])
+                    fecha = "Desde: " + str(row[6]) + "-" + str(row[7]) + "-" + str(row[8]) + " Hasta: " + str(row[9]) + "-" + str(row[10]) + "-" + str(row[11])
                     self.main.lineEdit_HabitacionTiempo.setText(fecha)
                 else:
-                    self.main.lineEdit_HabitacionNro.clear()
-                    self.main.lineEdit_HabitacionStatus.clear()
+                    consulta = "SELECT status FROM habitacion WHERE codigo = %s"
+                    cursor.execute(consulta, (habitacion_num,))
+                    resultado = cursor.fetchone()
+                    estado = str(resultado[0])
+                    self.main.lineEdit_HabitacionNro.setText(str(habitacion_num))
+                    self.main.lineEdit_HabitacionStatus.setText(estado)
+                    self.main.lineEdit_HabitacionTipo.setText(tipoHabitacion)
+                    self.main.lineEdit_IDReservaHabitacion.clear()
                     self.main.lineEdit_HabitacionHuesped.clear()
                     self.main.lineEdit_HabitacionTiempo.clear()
-                    QMessageBox.information(self.main, "INFORMACIÓN", "Esta habitación se encuentra disponible.")
+                    QMessageBox.information(self.main, "INFORMACIÓN", "Esta habitación se encuentra "+str(estado) + ".")
                 cursor.close()
                 conn.close()
             else:
@@ -404,58 +425,23 @@ class VentanaPrincipal():
     
     # Actualizar habitacion
     def actualizar_habitacion(self):
+        self.main.lineEdit_HabitacionDisponible.hide()
+        self.main.label_HabitacionDisponible.hide()
         try:
             nro_habitacion = self.main.lineEdit_HabitacionNro.text()
             estado_habitacion = self.main.lineEdit_HabitacionStatus.text()
-            huesped = self.main.lineEdit_HabitacionHuesped.text()
-            tiempo_estadia = self.main.lineEdit_HabitacionTiempo.text()
-        
+            
             conn = conexion.conectar()
             if conn:
                 cursor = conn.cursor()
                 
-                if nro_habitacion:
-                    # Actualizar el estado de la habitación
-                    if estado_habitacion:
+                if nro_habitacion != "" and estado_habitacion != "":
                         consulta_actualizar_habitacion = "UPDATE habitacion SET status = %s WHERE codigo = %s"
                         cursor.execute(consulta_actualizar_habitacion, (estado_habitacion, nro_habitacion))
                         conn.commit()
-                    
-                    # Si hay datos del huésped, validar y actualizar
-                    if huesped:
-                        nombre, apellido_ci = huesped.split(" /C.I: ")
-                        nombre, apellido = nombre.split()
-                        cedula = apellido_ci.split(": ")[1]
-                        
-                        consulta_validar_huesped = "SELECT * FROM huesped WHERE documento_identidad = %s AND nombre = %s AND apellido = %s"
-                        cursor.execute(consulta_validar_huesped, (cedula, nombre, apellido))
-                        resultado_huesped = cursor.fetchone()
-                        
-                        if not resultado_huesped:
-                            QMessageBox.warning(self.main, "Aviso", "El huésped no está registrado.")
-                            return
-                        
-                        # Actualizar la reserva si hay datos de tiempo de estadía
-                        if tiempo_estadia:
-                            fechas = tiempo_estadia.replace("Desde: ", "").replace(" Hasta: ", "").split()
-                            fecha_inicio, fecha_fin = fechas[0], fechas[1]
-                            
-                            dia_inicio, mes_inicio, anio_inicio = self.obtener_componentes_fecha(fecha_inicio)
-                            dia_fin, mes_fin, anio_fin = self.obtener_componentes_fecha(fecha_fin)
-                            
-                            consulta_actualizar_reserva = """
-                                UPDATE reserva
-                                SET dia_inicio = %s, mes_inicio = %s, anio_inicio = %s,
-                                    dia_fin = %s, mes_fin = %s, anio_fin = %s
-                                WHERE codigo_habitacion = %s AND codigo_huesped = %s
-                            """
-                            cursor.execute(consulta_actualizar_reserva, (dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, nro_habitacion, cedula))
-                            conn.commit()
-                    
-                    QMessageBox.information(self.main, "Éxito", "Información de la habitación actualizada correctamente.")
+                        QMessageBox.information(self.main, "Éxito", "Información de la habitación actualizada correctamente.")
                 else:
-                    QMessageBox.warning(self.main, "Aviso", "Debe ingresar el número de la habitación.")
-                    
+                    QMessageBox.warning(self.main, "Aviso", "Debe ingresar el número de la habitación y un status.")
             else:
                 QMessageBox.warning(self.main, "Error", "No se pudo conectar a la base de datos.")
         
@@ -464,8 +450,39 @@ class VentanaPrincipal():
         finally:
             if conn:
                 conn.close()
-        pass
     
     # Eliminar cambios de las habitaciones
     def eliminar_cambios_habitacion(self):
-        pass
+        self.main.lineEdit_HabitacionDisponible.hide()
+        self.main.label_HabitacionDisponible.hide()
+        self.main.lineEdit_HabitacionNro.clear()
+        self.main.lineEdit_HabitacionStatus.clear()
+        self.main.lineEdit_HabitacionTipo.clear()
+        self.main.lineEdit_IDReservaHabitacion.clear()
+        self.main.lineEdit_HabitacionHuesped.clear()
+        self.main.lineEdit_HabitacionTiempo.clear()
+
+    # Mostrar Habitaciones disponibles
+    def mostrar_habitacionesDisponibles(self):
+        self.main.lineEdit_HabitacionDisponible.show()
+        self.main.label_HabitacionDisponible.show()
+        status = "DISPONIBLE"
+        try:
+            conn = conexion.conectar()
+            if conn:
+                cursor = conn.cursor()
+                consulta = "SELECT codigo FROM habitacion WHERE status = %s"
+                cursor.execute(consulta, (status,))
+                resultados = cursor.fetchall()
+                habitaciones_disponibles =str(resultados)
+                self.main.lineEdit_HabitacionDisponible.setText(str(habitaciones_disponibles))
+                QMessageBox.information(self.main, "Éxito", "Información de la habitaciones disponibles obtenida.")
+
+            else:
+                QMessageBox.warning(self.main, "Error", "No se pudo conectar a la base de datos.")
+        
+        except Exception as e:
+            QMessageBox.critical(self.main, "Error", f"Ocurrió un error al buscar las habitaciones disponibles: {str(e)}")
+        finally:
+            if conn:
+                conn.close()
