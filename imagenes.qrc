@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="logito">
+    <file>logo_modificar_usuario_blanco.png</file>
+    <file>logo_modificar_usuario_azul.png</file>
+    <file>busqueda.png</file>
+    <file>aplicaciones.png</file>
+    <file>dashboard_azul.png</file>
+    <file>logo_salir_blanco.png</file>
+    <file>logo_usuario_negro.png</file>
+    <file>logo_actualizar_azul.png</file>
+    <file>logo_actualizar_blanco.png</file>
+    <file>logo_deudas_azul.png</file>
+    <file>logo_deudas_blanco.png</file>
+    <file>logo_grafica_azul.png</file>
+    <file>logo_grafica_blanco.png</file>
+    <file>logo_menu_negro.png</file>
+    <file>logo_pagos_azul.png</file>
+    <file>logo_pagos_blanco.png</file>
+    <file>logo_reservar_azul.png</file>
+    <file>logo_reservar_blanco.png</file>
+    <file>logo_salir_azul.png</file>
+    <file>caption.jpg</file>
+    <file>vectorhotel.png</file>
+  </qresource>
+</RCC>
