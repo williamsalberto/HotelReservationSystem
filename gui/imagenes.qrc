@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="logito">
+    <file>logo_modificar_usuario_blanco.png</file>
+    <file>logo_modificar_usuario_azul.png</file>
     <file>busqueda.png</file>
     <file>aplicaciones.png</file>
     <file>dashboard_azul.png</file>
@@ -14,10 +16,6 @@
     <file>logo_menu_negro.png</file>
     <file>logo_pagos_azul.png</file>
     <file>logo_pagos_blanco.png</file>
-    <file>logo_agregarusuario_azul.png</file>
-    <file>logo_agregarusuaio_blanco.png</file>
-    <file>logo_habitacion_azul.png</file>
-    <file>logo_habitacion_blanco.png</file>
     <file>logo_reservar_azul.png</file>
     <file>logo_reservar_blanco.png</file>
     <file>logo_salir_azul.png</file>
