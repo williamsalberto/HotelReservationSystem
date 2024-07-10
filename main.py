@@ -1,5 +1,5 @@
 from PyQt6 import uic
-from PyQt6.QtWidgets import QMessageBox, QPushButton
+from PyQt6.QtWidgets import QMessageBox, QPushButton, QTableWidgetItem, QTableWidget
 # Libreria para convertir texto a fecha
 from datetime import datetime
 # Importar conexion
@@ -95,6 +95,10 @@ class VentanaPrincipal():
         self.main.btn_BuscarReserva.clicked.connect(self.actualizar_reserva)
         self.main.btn_Actualizar.clicked.connect(self.guardar_actualizacion_reserva)
         self.main.btn_LimpiarActualizacion.clicked.connect(self.limpiar_casillas_actualizar)
+        self.main.btnbuscarMesIngresos.clicked.connect(self.buscar_ingresos_por_mes)
+        self.main.btnbuscarAnioIngresos.clicked.connect(self.buscar_ingresos_por_anio)
+        self.main.btnbuscarMesDeudas.clicked.connect(self.buscar_deudas_por_mes)
+        self.main.btnbuscarAnioDeudas.clicked.connect(self.buscar_ingresos_por_anio)
 
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
@@ -654,3 +658,140 @@ class VentanaPrincipal():
         self.main.lineEdit_Profesion.clear()
         self.main.lineEdit_Procedencia.clear()
     
+    def buscar_ingresos_por_mes(self):
+        mes = self.main.lineEdit_buscarMes.text()
+        #Convertimos el texto de mes de string a entero
+        mes = int(mes)
+        #Manejamos los posibles errores
+        if (mes < 1 or mes > 12):
+            QMessageBox.critical(self.main, "Error", f"Mes fuera de rango!")
+        elif(mes == ""):
+            QMessageBox.critical(self.main, "Error", f"Ingrese el numero de un mes (1-12)!")
+        else:
+            try:
+                conn = conexion.conectar()
+                if conn:
+                    cursor = conn.cursor()
+                    consulta = """
+                    SELECT 
+                    codigo, codigo_habitacion, codigo_huesped, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, monto
+                    FROM reserva
+                    WHERE status_pago = 'CANCELADO'
+                    AND mes_inicio = %s
+                    """
+                    cursor.execute(consulta, (mes,))
+                    reservitas = cursor.fetchall()
+                    #Cargamos los datos en la tabla
+                    self.main.tablaIngresos.setRowCount(len(reservitas))
+                    for i, reserva in enumerate(reservitas):
+                        for j, valor in enumerate(reserva):
+                            item = QTableWidgetItem(str(valor))
+                            self.main.tablaIngresos.setItem(i, j, item)
+
+            except ValueError as e:
+                QMessageBox.critical(f'Ocurrio el error: {e}')
+            finally:
+                if conn:
+                    conn.close()
+
+    def buscar_ingresos_por_anio(self):
+        anio = self.main.lineEdit_buscarAnio.text()
+        #Convertimos el texto de anio de string a entero
+        anio = int(anio)
+        #Manejamos los posibles errores
+        if(anio == ""):
+            QMessageBox.critical(self.main, "Error", f"Ingrese el numero de un año valido!")
+        else:
+            try:
+                conn = conexion.conectar()
+                if conn:
+                    cursor = conn.cursor()
+                    consulta = """
+                    SELECT 
+                    codigo, codigo_habitacion, codigo_huesped, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, monto
+                    FROM reserva
+                    WHERE status_pago = 'CANCELADO'
+                    AND anio_inicio = %s
+                    """
+                    cursor.execute(consulta, (anio,))
+                    reservitas = cursor.fetchall()
+                    #Cargamos los datos en la tabla
+                    self.main.tablaIngresos.setRowCount(len(reservitas))
+                    for i, reserva in enumerate(reservitas):
+                        for j, valor in enumerate(reserva):
+                            item = QTableWidgetItem(str(valor))
+                            self.main.tablaIngresos.setItem(i, j, item)
+
+            except ValueError as e:
+                QMessageBox.critical(f'Ocurrio el error: {e}')
+            finally:
+                if conn:
+                    conn.close()
+    
+    def buscar_deudas_por_mes(self):
+        mes = self.main.lineEdit_buscarMesDeudas.text()
+        #Convertimos el texto de mes de string a entero
+        mes = int(mes)
+        #Manejamos los posibles errores
+        if(mes == ""):
+            QMessageBox.critical(self.main, "Error", f"Ingrese el numero de un año valido!")
+        elif(mes < 1 or mes > 12):
+            QMessageBox.critical(self.main, "Error", f"Mes fuera de rango!")
+        else:
+            try:
+                conn = conexion.conectar()
+                if conn:
+                    cursor = conn.cursor()
+                    consulta = """
+                    SELECT 
+                    codigo, codigo_habitacion, codigo_huesped, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, monto
+                    FROM reserva
+                    WHERE status_pago = 'POR CANCELAR'
+                    AND mes_inicio = %s
+                    """
+                    cursor.execute(consulta, (mes,))
+                    reservitas = cursor.fetchall()
+                    #Cargamos los datos en la tabla
+                    self.main.tablaDeudas.setRowCount(len(reservitas))
+                    for i, reserva in enumerate(reservitas):
+                        for j, valor in enumerate(reserva):
+                            item = QTableWidgetItem(str(valor))
+                            self.main.tablaDeudas.setItem(i, j, item)
+            except ValueError as e:
+                QMessageBox.critical(f'Ocurrio el error: {e}')
+            finally:
+                if conn:
+                    conn.close()
+
+    def buscar_deudas_por_anio(self):
+        anio = self.main.lineEdit_buscarAnioDeudas.text()
+        #Convertimos el texto de anio de string a entero
+        anio = int(anio)
+        #Manejamos los posibles errores
+        if(anio == ""):
+            QMessageBox.critical(self.main, "Error", f"Ingrese el numero de un año valido!")
+        else:
+            try:
+                conn = conexion.conectar()
+                if conn:
+                    cursor = conn.cursor()
+                    consulta = """
+                    SELECT 
+                    codigo, codigo_habitacion, codigo_huesped, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, monto
+                    FROM reserva
+                    WHERE status_pago = 'POR CANCELAR'
+                    AND anio_inicio = %s
+                    """
+                    cursor.execute(consulta, (anio,))
+                    reservitas = cursor.fetchall()
+                    #Cargamos los datos en la tabla
+                    self.main.tablaDeudas.setRowCount(len(reservitas))
+                    for i, reserva in enumerate(reservitas):
+                        for j, valor in enumerate(reserva):
+                            item = QTableWidgetItem(str(valor))
+                            self.main.tablaDeudas.setItem(i, j, item)
+            except ValueError as e:
+                QMessageBox.critical(f'Ocurrio el error: {e}')
+            finally:
+                if conn:
+                    conn.close()
