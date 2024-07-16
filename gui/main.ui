@@ -1,0 +1,3373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegistradorHuespedes</class>
+ <widget class="QMainWindow" name="RegistradorHuespedes">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>827</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>57</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(245, 250, 254);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="1">
+     <widget class="QWidget" name="icon_name_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	background-color: rgb(31, 149, 239);
+	color: white;
+}
+
+QPushButton{
+	color: white;
+	text-align: left;
+	height: 30px;
+	border: none;
+	padding-left: 10px;
+	border-radius:10px;
+}
+QPushButton:hover{
+	background-color: rgb(245, 250, 254);
+	color: rgb(31, 149, 239);
+	font-weight:bold;
+}
+QPushButton:checked{
+	background-color: rgb(245, 250, 254);
+	color: rgb(31, 149, 239);
+	font-weight:bold;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="rightMargin">
+          <number>20</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>logo_usuario_negro.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Menu</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnDashboard_2">
+           <property name="text">
+            <string>Dashboard</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>aplicaciones.png</normaloff>
+             <normalon>dashboard_azul.png</normalon>aplicaciones.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnAggHuesped_2">
+           <property name="text">
+            <string>Agg. Huesped</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_agregarusuario_blanco.png</normaloff>
+             <normalon>logo_agregarusuario_azul.png</normalon>logo_agregarusuario_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActHuesped_2">
+           <property name="font">
+            <font>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Act. Huesped</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_modificar_usuario_blanco.png</normaloff>
+             <normalon>logo_modificar_usuario_azul.png</normalon>logo_modificar_usuario_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnHabitaciones_2">
+           <property name="text">
+            <string>Habitaciones</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_habitacion_blanco.png</normaloff>
+             <normalon>logo_habitacion_azul.png</normalon>logo_habitacion_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnReservar_2">
+           <property name="text">
+            <string>Reservar</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_reservar_blanco.png</normaloff>
+             <normalon>logo_reservar_azul.png</normalon>logo_reservar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActualizar_2">
+           <property name="text">
+            <string>Act. Reserva</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_actualizar_blanco.png</normaloff>
+             <normalon>logo_actualizar_azul.png</normalon>logo_actualizar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDeudas_2">
+           <property name="text">
+            <string>Deudas</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_deudas_blanco.png</normaloff>
+             <normalon>logo_deudas_azul.png</normalon>logo_deudas_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnIngresos_2">
+           <property name="text">
+            <string>Ingresos</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_pagos_blanco.png</normaloff>
+             <normalon>logo_pagos_azul.png</normalon>logo_pagos_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>206</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="text">
+          <string>Salir</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>logo_salir_blanco.png</normaloff>
+           <normalon>logo_salir_azul.png</normalon>logo_salir_blanco.png</iconset>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QWidget" name="icon_only_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	background-color: rgb(31, 149, 239);
+}
+
+QPushButton{
+	color: white;
+	height: 30px;
+	border: none;
+	border-radius: 10px;
+}
+
+QPushButton:hover{
+	background-color: rgb(245, 250, 254);
+	color: rgb(31, 149, 239);
+	font-weight:bold;
+}
+
+
+QPushButton:checked{
+	background-color: rgb(245, 250, 254);
+	color: rgb(31, 149, 239);
+	font-weight:bold;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>logo_usuario_negro.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="btnDashboard_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>aplicaciones.png</normaloff>
+             <normalon>dashboard_azul.png</normalon>aplicaciones.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnAggHuesped_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_agregarusuario_blanco.png</normaloff>
+             <normalon>logo_agregarusuario_azul.png</normalon>logo_agregarusuario_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActHuesped_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_modificar_usuario_blanco.png</normaloff>
+             <normalon>logo_modificar_usuario_azul.png</normalon>logo_modificar_usuario_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnHabitaciones_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_habitacion_blanco.png</normaloff>
+             <normalon>logo_habitacion_azul.png</normalon>logo_habitacion_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnReservar_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_reservar_blanco.png</normaloff>
+             <normalon>logo_reservar_azul.png</normalon>logo_reservar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActualizar_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_actualizar_blanco.png</normaloff>
+             <normalon>logo_actualizar_azul.png</normalon>logo_actualizar_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnDeudas_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_deudas_blanco.png</normaloff>
+             <normalon>logo_deudas_azul.png</normalon>logo_deudas_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnIngresos_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_pagos_blanco.png</normaloff>
+             <normalon>logo_pagos_azul.png</normalon>logo_pagos_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>198</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButton_6">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>logo_salir_blanco.png</normaloff>
+             <normalon>logo_salir_azul.png</normalon>logo_salir_blanco.png</iconset>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QWidget" name="main_menu" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QWidget" name="header_widget" native="true">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QPushButton" name="btnMenu">
+            <property name="styleSheet">
+             <string notr="true">border: none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>logo_menu_negro.png</normaloff>logo_menu_negro.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>159</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <family>Segoe UI</family>
+              <pointsize>14</pointsize>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel{
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>La Casa Hotel Boutique C.A</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>158</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_17">
+            <property name="styleSheet">
+             <string notr="true">border: none;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>logo_usuario_negro.png</normaloff>logo_usuario_negro.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="currentIndex">
+          <number>2</number>
+         </property>
+         <widget class="QWidget" name="dashboard_page">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>28</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">text-align: center;
+font: 28pt &quot;Segoe UI&quot;;</string>
+             </property>
+             <property name="text">
+              <string>¡Bienvenido!</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="agghuesped_page">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_tituloHuesped">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>217</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Ingresar Datos de Huesped</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>216</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_DatosReserva">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	font: 14pt &quot;Segoe UI&quot;;
+}
+QLineEdit{
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="11" column="1">
+               <widget class="QPushButton" name="pushButton_Limpiar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButton_Limpiar{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButton_Limpiar:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButton_Limpiar:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Borrar Datos</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QLineEdit" name="lineEdit_estadoCivil"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_fechaNacimiento">
+                <property name="text">
+                 <string>Fecha de Nacimiento</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_apellido"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_nombre">
+                <property name="text">
+                 <string>Nombre</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_cedula"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_nombre"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_apellido">
+                <property name="text">
+                 <string>Apellido</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_fechaNacimiento"/>
+              </item>
+              <item row="11" column="0">
+               <widget class="QPushButton" name="pushButton_Registrar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButton_Registrar{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButton_Registrar:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButton_Registrar:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Registrar</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="0">
+               <widget class="QLabel" name="label_oficio">
+                <property name="text">
+                 <string>Profesión/Oficio</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_cedula">
+                <property name="text">
+                 <string>Documento de identidad</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="QLabel" name="label_telefono">
+                <property name="text">
+                 <string>Telefono</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="1">
+               <widget class="QLineEdit" name="lineEdit_telefono"/>
+              </item>
+              <item row="8" column="1">
+               <widget class="QLineEdit" name="lineEdit_procedencia"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_apellido">
+                <property name="text">
+                 <string>Apellido</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_estadoCivil">
+                <property name="text">
+                 <string>Estado Civil</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="1">
+               <widget class="QLineEdit" name="lineEdit_profesion"/>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_Procedencia">
+                <property name="text">
+                 <string>Procedencia</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_empresa"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_empresa">
+                <property name="text">
+                 <string>Empresa</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="actualizarhuesped_page">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QFrame" name="frame_TituloActualizarHuesped">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <spacer name="horizontalSpacer_14">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>205</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_TituloActualizarHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Actualizar Datos De Huesped</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_15">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>204</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_InfoActualizarHuesped">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_DocumentoIdentidad">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Documento de identidad</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_DocumentoIdentidad"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_Nombre">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Nombre</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_Nombre"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_Apellido">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Apellido</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_Apellido"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_FechaN">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Fecha de nacimiento</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_FechaN"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_EstadoC">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Estado civil</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_EstadoC"/>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_Empresa">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Empresa</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="lineEdit_Empresa"/>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_Telefono">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Telefono</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="lineEdit_Telefono"/>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_Profesion">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Profesión/Oficio</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QLineEdit" name="lineEdit_Profesion"/>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="label_Procedencia_2">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Procedencia</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="QLineEdit" name="lineEdit_Procedencia"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_botonesActualizarHuesped">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QPushButton" name="pushButton_ActualizarDatosHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>11</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Actualizar Datos</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_BuscarDatosHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>11</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Buscar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_BorrarDatosHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>11</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Borrar Info.</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_EliminarHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>11</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Eliminar Huesped</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="habitaciones_page">
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QFrame" name="frameTituloPageHabitacion">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_16">
+              <item>
+               <spacer name="horizontalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_TituloPageHabitacion">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Información de Habitaciones</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_10">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frameBotonesHabitacion9">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>100</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="1">
+               <widget class="QPushButton" name="pushButtonHab2">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab2{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#btnIngresar:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#btnIngresar:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 2</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QPushButton" name="pushButtonHab4">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab4{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab4:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab4:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 4</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pushButtonHab1">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab1{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab1:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab1:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QPushButton" name="pushButtonHab3">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab3{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab3:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab3:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 3</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QPushButton" name="pushButtonDisponibilidad">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonDisponibilidad{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonDisponibilidad:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonDisponibilidad:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>DISPONIBILIDAD</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QPushButton" name="pushButtonHab15">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab15{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab15:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab15:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 15</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pushButtonHab14">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab14{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab14:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab14:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 14</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="pushButtonHab13">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab13{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab13:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab13:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 13</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QPushButton" name="pushButtonHab12">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab12{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab12:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab12:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 12</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QPushButton" name="pushButtonHab11">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab11{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab11:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab11:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 11</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="pushButtonHab10">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab10{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab10:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab10:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 10</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="pushButtonHab9">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab9{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab9:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab9:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 9</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QPushButton" name="pushButtonHab8">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab8{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab8:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab8:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 8</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QPushButton" name="pushButtonHab7">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab7{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab7:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab7:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 7</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="pushButtonHab6">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab6{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab6:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab6:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 6</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="pushButtonHab5">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButtonHab5{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButtonHab5:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonHab5:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>HABITACIÓN 5</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_InfoHabitaciones">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_HabitacionNro">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Habitación nro</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0" colspan="3">
+               <widget class="QFrame" name="frameBotonesCambioHabitacion">
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <item>
+                  <spacer name="horizontalSpacer_13">
+                   <property name="orientation">
+                    <enum>Qt::Orientation::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>343</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonActualizarInfoHabitacion">
+                   <property name="font">
+                    <font>
+                     <pointsize>13</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton#pushButtonActualizarInfoHabitacion{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 2px;
+}
+
+QPushButton#pushButtonActualizarInfoHabitacion:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonActualizarInfoHabitacion:pressed{
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>ACTUALIZAR HAB</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButtonEliminarCambioHabitacion">
+                   <property name="font">
+                    <font>
+                     <pointsize>13</pointsize>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton#pushButtonEliminarCambioHabitacion{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 2px;
+}
+
+QPushButton#pushButtonEliminarCambioHabitacion:hover{
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButtonEliminarCambioHabitacion:pressed{
+	padding-left: 2px;
+	padding-right: 2px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>ELIMINAR CAMBIOS</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_tituloInformacion">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Información</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_HabitacionHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Huésped</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionHuesped">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_HabitacionStatus">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Status</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_HabitacionTiempo">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Tiempo de estadía</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <spacer name="horizontalSpacer_12">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>260</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="6" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionTiempo">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionStatus">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="lineEdit_HabitacionNro">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <spacer name="horizontalSpacer_11">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>261</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLineEdit" name="lineEdit_IDReservaHabitacion"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_IDReservaHabitacion">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>ID de Reserva</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="reservar_page">
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButto:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QFrame" name="frame_tituloReserva">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>75</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>217</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Ingresar Datos de Reserva</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_8">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>216</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_datosReserva">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="cliente_Reserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Cedula Cliente</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="habitacion_Reserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Habitación</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="monto_Cancelar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Monto a cancelar ($)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_monto_Cancelar"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="status_Pago">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Estado de pago</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="fecha_inicio_Reserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Fecha de inicio</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_fecha_inicio_Reserva"/>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="fecha_salidad_Reserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Fecha de salida</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="lineEdit_fecha_salida_Reserva"/>
+              </item>
+              <item row="6" column="0" colspan="2">
+               <widget class="QFrame" name="frame_notas_Reserva">
+                <property name="minimumSize">
+                 <size>
+                  <width>45</width>
+                  <height>100</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="nota_Reserva">
+                   <property name="font">
+                    <font>
+                     <pointsize>14</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Nota</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QTextEdit" name="textEdit_nota_reporte_Reserva"/>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QTextEdit" name="textEdit_nota_Reserva"/>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="nota_pago_Reserva">
+                   <property name="font">
+                    <font>
+                     <pointsize>14</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Nota de pago</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QTextEdit" name="textEdit_nota_pago_Reserva"/>
+                 </item>
+                 <item row="0" column="2">
+                  <widget class="QLabel" name="nota_reporte_Reserva">
+                   <property name="font">
+                    <font>
+                     <pointsize>14</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Nota de reportes de huesped</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="comboBox_habitacion"/>
+              </item>
+              <item row="3" column="1">
+               <widget class="QComboBox" name="comboBox_status_pago"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_cliente_Reserva"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_botones_Reserva">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>45</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QPushButton" name="pushButton_registrar_Reserva">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButton_registrar_Reserva{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+}
+
+QPushButton#pushButton_registrar_Reserva:hover{
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButton_registrar_Reserva:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Registrar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_limpiar_Reserva">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButton_limpiar_Reserva{
+
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButton_limpiar_Reserva:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButton_limpiar_Reserva:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Borrar Datos</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="actualizar_page">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QFrame" name="frame_TituloActualizar">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>170</width>
+                  <height>38</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_tituloActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Actualizar Datos Reserva</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>130</width>
+                  <height>48</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_2">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_IDBuscarReserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>ID Reserva</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_IDBuscar"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_CedulaActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Cedula Cliente</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_CedulaActualizar"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_HabitacionActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Habitacion</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QComboBox" name="comboBox_habitacionActualizar"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_FechaInicioActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Fecha Inicio</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_FechaInicioActualizar"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_FechaSalidaActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Fecha Salida</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_FechaSalidaActualizar"/>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_MontoActualizado">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Monto Actualizado:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="lineEdit_MontoActualizado"/>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_EstadoPagoActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Estado de Pago</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QComboBox" name="comboBox_EstadoPagoActualizar"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_2">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_NotaActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Nota</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_NotaDePagoActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Nota de Pago</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_NotaReporteHuespedActualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Nota reportes de huesped</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QTextEdit" name="textEdit_NotaActualizar"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QTextEdit" name="textEdit_NotaDePagoActualizar"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QTextEdit" name="textEdit_NotaReporteHuespedActualizar"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <widget class="QPushButton" name="btn_BuscarReserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#btn_BuscarReserva{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#btn_BuscarReserva:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#btn_BuscarReserva:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Buscar Reserva</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btn_Actualizar">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#btn_Actualizar{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#btn_Actualizar:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#btn_Actualizar:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Guardar Datos</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btn_LimpiarActualizacion">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#btn_LimpiarActualizacion{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#btn_LimpiarActualizacion:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#btn_LimpiarActualizacion:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Limpiar Datos</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_EliminarReserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton#pushButton_EliminarReserva{
+	background-color: rgb(64, 113, 244);
+	color: rgb(255, 255, 255);
+	border-radius: 5px;
+
+}
+
+QPushButton#pushButton_EliminarReserva:hover{
+
+	background-color: rgb(47, 84, 179);
+}
+
+QPushButton#pushButton_EliminarReserva:pressed{
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: rgb(35, 64, 135);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Eliminar Reserva</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="deudas_page">
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <widget class="QFrame" name="frame_4">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <spacer name="horizontalSpacer_16">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>209</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_tituloDeudas">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Ver Deudas</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_17">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>218</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_6">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QFrame" name="frame_8">
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QFormLayout" name="formLayout_4">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_buscarMesDeudas">
+                   <property name="text">
+                    <string>Ingrese mes para buscar:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="lineEdit_buscarMesDeudas"/>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_buscarAnioDeudas">
+                   <property name="text">
+                    <string>Ingrese año para buscar:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLineEdit" name="lineEdit_buscarAnioDeudas"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="tablaDeudas">
+                <property name="styleSheet">
+                 <string notr="true">QHeaderView::section{
+	background-color: rgba(31,149,239,255);
+	border: 1px solid;
+	color: white;
+}</string>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>COD.</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>HAB.</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>HUESPED</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>DIA_INI</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MES_INI</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ANIO_INI</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>DIA_FIN</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MES_FIN</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>ANIO_FIN</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>MONTO</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_7">
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_18">
+                 <item>
+                  <widget class="QPushButton" name="btnbuscarMesDeudas">
+                   <property name="text">
+                    <string>Buscar por Mes</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnbuscarAnioDeudas">
+                   <property name="text">
+                    <string>Buscar por año </string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="ingresos_page">
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <item>
+            <widget class="QFrame" name="frame_5">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <item>
+               <spacer name="horizontalSpacer_18">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>199</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_tituloIngresos">
+                <property name="font">
+                 <font>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Ver Ingresos</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_19">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>218</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_10">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QFormLayout" name="formLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_buscarMes">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Ingrese mes para buscar:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_buscarMes"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_buscarAnio">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Ingrese año para buscar:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_buscarAnio"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tablaIngresos">
+             <property name="styleSheet">
+              <string notr="true">QHeaderView::section{
+	background-color: rgba(31,149,239,255);
+	border: 1px solid;
+	color: white;
+}</string>
+             </property>
+             <column>
+              <property name="text">
+               <string>COD.</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>HAB.</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>HUESPED</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>DIA_INI</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>MES_INI</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>ANIO_INI</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>DIA_FIN</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>MES_FIN</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>ANIO_FIN</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>MONTO</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_9">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QPushButton" name="btnbuscarMesIngresos">
+                <property name="text">
+                 <string>Buscar por Mes</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnbuscarAnioIngresos">
+                <property name="text">
+                 <string>Buscar por Año</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imagenes.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btnMenu</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>icon_only_widget</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>50</x>
+     <y>434</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnMenu</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>icon_name_widget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>526</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnIngresos_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnIngresos_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>338</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>101</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDeudas_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDeudas_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>89</x>
+     <y>303</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnActualizar_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnActualizar_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>29</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>259</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnReservar_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnReservar_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>33</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>84</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnHabitaciones_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnHabitaciones_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>89</x>
+     <y>170</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAggHuesped_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnAggHuesped_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>35</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>98</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDashboard_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDashboard_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>25</x>
+     <y>70</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>92</x>
+     <y>78</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDashboard_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDashboard_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>66</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnAggHuesped_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnAggHuesped_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnHabitaciones_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnHabitaciones_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>34</x>
+     <y>154</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnReservar_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnReservar_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>106</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnActualizar_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnActualizar_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>45</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnDeudas_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnDeudas_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>34</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnIngresos_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnIngresos_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>335</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>335</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RegistradorHuespedes</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>24</x>
+     <y>555</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>29</x>
+     <y>594</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_7</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>RegistradorHuespedes</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>119</x>
+     <y>594</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnActHuesped_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnActHuesped_1</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>118</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>38</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnActHuesped_1</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>btnActHuesped_2</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>445</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>95</x>
+     <y>444</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
