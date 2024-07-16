@@ -633,7 +633,7 @@ QPushButton:checked{
           <string notr="true">background-color: rgb(255, 255, 255);</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="dashboard_page">
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -1213,6 +1213,12 @@ QPushButton:pressed{
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_EliminarHuesped">
+                <property name="font">
+                 <font>
+                  <pointsize>11</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Eliminar Huesped</string>
                 </property>
@@ -2590,7 +2596,7 @@ QPushButton#btn_Actualizar:pressed{
 }</string>
                 </property>
                 <property name="text">
-                 <string>Guardar Nuevos Datos</string>
+                 <string>Guardar Datos</string>
                 </property>
                </widget>
               </item>
@@ -2628,6 +2634,12 @@ QPushButton#btn_LimpiarActualizacion:pressed{
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_EliminarReserva">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton#pushButton_EliminarReserva{
 	background-color: rgb(64, 113, 244);
