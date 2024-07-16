@@ -40,9 +40,6 @@ class VentanaPrincipal():
         self.main.btnIngresos_1.clicked.connect(self.cambiar_pagina_pagos)
         self.main.btnIngresos_2.clicked.connect(self.cambiar_pagina_pagos)
 
-        self.main.btnGrafico_1.clicked.connect(self.cambiar_pagina_grafico)
-        self.main.btnGrafico_2.clicked.connect(self.cambiar_pagina_grafico)
-
         # Botones de page registar huesped
         self.main.pushButton_Registrar.clicked.connect(self.registrar_huesped)
         self.main.pushButton_Limpiar.clicked.connect(self.limpiar_casillas_huesped)
@@ -75,6 +72,7 @@ class VentanaPrincipal():
         self.main.pushButton_BuscarDatosHuesped.clicked.connect(self.buscar_datos_huesped)
         self.main.pushButton_ActualizarDatosHuesped.clicked.connect(self.actualizar_datos_huesped)
         self.main.pushButton_BorrarDatosHuesped.clicked.connect(self.borrar_datos_huesped)
+        self.main.pushButton_EliminarHuesped.clicked.connect(self.eliminar_huesped)
 
         # Rellenar select de page reservar
         self.main.comboBox_status_pago.addItem('SELECCIONA UNA OPCIÓN')
@@ -99,7 +97,7 @@ class VentanaPrincipal():
         self.main.btnbuscarAnioIngresos.clicked.connect(self.buscar_ingresos_por_anio)
         self.main.btnbuscarMesDeudas.clicked.connect(self.buscar_deudas_por_mes)
         self.main.btnbuscarAnioDeudas.clicked.connect(self.buscar_ingresos_por_anio)
-
+        self.main.pushButton_EliminarReserva.clicked.connect(self.eliminar_reserva)
     #Definimos los metodos para cada boton sea capaz de cambiar entre paginas
     def cambiar_pagina_dashboard(self):
         self.main.stackedWidget.setCurrentIndex(0)
@@ -124,9 +122,6 @@ class VentanaPrincipal():
 
     def cambiar_pagina_pagos(self):
         self.main.stackedWidget.setCurrentIndex(7)
-
-    def cambiar_pagina_grafico(self):
-        self.main.stackedWidget.setCurrentIndex(8)
 
     def registrar_huesped(self):
         if self.main.lineEdit_cedula.text() != '':
@@ -274,6 +269,35 @@ class VentanaPrincipal():
             if conn:
                 cursor = conn.cursor()
                 # Consultamos los datos
+                consulta = "DELETE FROM reserva WHERE codigo = %s"
+                cursor.execute(consulta, (codigo_reserva,))
+                cursor.execute(consulta, (codigo,))
+                conn.commit()
+                if cursor.rowcount > 0:
+                    QMessageBox.information(self.main, "Éxito", "Reserva eliminada correctamente.")
+                else:
+                    QMessageBox.warning(self.main, "Aviso", "No existe una reserva con el ID especificado.")
+
+        except ValueError:
+            QMessageBox.warning(self.main, "Error", "Ingresa un ID de reserva válido (número entero).")
+        except Exception as e:
+            QMessageBox.critical(self.main, "Error", f"Ocurrió un error al eliminar la reserva: {str(e)}")
+        finally:
+            if conn:
+                conn.close()
+
+    def eliminar_reserva(self):
+        codigo = self.main.lineEdit_IDBuscar.text()
+        if not codigo:
+            QMessageBox.warning(self.main, "Aviso", "Ingresa un ID de reserva válido.")
+            return
+
+        try:
+            codigo_reserva = int(codigo)
+            conn = conexion.conectar()
+            if conn:
+                cursor = conn.cursor()
+                # Consultamos los datos
                 consulta = "SELECT codigo_habitacion, codigo_huesped, dia_inicio, mes_inicio, anio_inicio, dia_fin, mes_fin, anio_fin, nota_importante, nota_reporte_huesped, nota_pago, monto, status_pago FROM reserva WHERE codigo = %s"
                 cursor.execute(consulta, (codigo_reserva,))
                 resultado = cursor.fetchone()
@@ -299,9 +323,7 @@ class VentanaPrincipal():
         finally:
             if conn:
                 conn.close()
-
-
-
+                
     def guardar_actualizacion_reserva(self):
         codigo = self.main.lineEdit_IDBuscar.text()
         cedula_cliente = self.main.lineEdit_CedulaActualizar.text()
@@ -795,3 +817,31 @@ class VentanaPrincipal():
             finally:
                 if conn:
                     conn.close()
+
+    def eliminar_huesped(self):
+        cedula = self.main.lineEdit_DocumentoIdentidad.text()
+        try:
+            conn = conexion.conectar()
+            if conn:
+                cursor = conn.cursor()
+                # Eliminamos al huésped de la base de datos
+                consulta = """
+                    DELETE FROM huesped
+                    WHERE documento_identidad = %s
+                """
+                cursor.execute(consulta, (cedula,))
+                conn.commit()
+                if cursor.rowcount > 0:
+                    QMessageBox.information(self.main, "Éxito", "Huésped eliminado correctamente.")
+                else:
+                    QMessageBox.warning(self.main, "Error", "No se encontró un huésped con esa cédula.")
+            else:
+                QMessageBox.warning(self.main, "Error", "No se pudo conectar a la base de datos.")
+
+        except ValueError:
+            QMessageBox.warning(self.main, "Error", "Ingresa una cédula de identidad válida.")
+        except Exception as e:
+            QMessageBox.critical(self.main, "Error", f"Ocurrió un error al eliminar el huésped: {str(e)}")
+        finally:
+            if conn:
+                conn.close()
