@@ -5,7 +5,6 @@ En este archivo esta destinado unicamente a realizar la conexion a la base de da
 Se puede importar a otros archivos donde sea necesaria la conexion
 
 '''
-
 def conectar():
     try:
         conexion = psycopg2.connect(
